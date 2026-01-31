@@ -16,3 +16,5 @@ visible = false
 splash_screen = ExtResource("5_u5opy")
 
 [node name="Fade" parent="." unique_id=1850786262 instance=ExtResource("5_dakft")]
+
+[connection signal="recenter" from="Player" to="." method="_on_player_recenter"]

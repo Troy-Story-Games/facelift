@@ -12,8 +12,6 @@ var is_simulator: bool = false
 func _ready():
     print_debug("********************** START **********************")
 
-    Music.play("game_music")
-
     xr_interface = XRServer.find_interface("OpenXR")
     if xr_interface and xr_interface.is_initialized():
         print_debug("OpenXR initialized successfully")
@@ -36,6 +34,9 @@ func _ready():
     # Per the docs, we don't want to call center_on_hmd until after a few frames
     await get_tree().create_timer(0.15).timeout
 
+    recenter_scene()
+
+func recenter_scene():
     # Recenter the scene around the player
     XRServer.center_on_hmd(XRServer.RESET_BUT_KEEP_TILT, true)
 
@@ -102,3 +103,6 @@ func _fade_to_black():
 
 func _set_fade(p_value : float):
     XRToolsFade.set_fade("staging", Color(0, 0, 0, p_value))
+
+func _on_player_recenter() -> void:
+    recenter_scene()

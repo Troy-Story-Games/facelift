@@ -1,18 +1,25 @@
 extends Node
 
 const HAND_PATH = "res://game/player/hands/"
+const ENEMIES_PATH = "res://game/enemy/enemies/"
 
 var player_hands: Dictionary
+var enemies: Dictionary
 
 func _ready() -> void:
     player_hands = load_dict_from_path(HAND_PATH)
-    print(player_hands)
+    enemies = load_dict_from_path(ENEMIES_PATH)
 
-func get_hand(name: String) -> PackedScene:
-    assert(name in player_hands, "Wrong name")
-    return player_hands[name]
+func get_enemy(enemy_name: String) -> PackedScene:
+    assert(enemy_name in enemies, "Wrong enemy name")
+    return enemies[enemy_name]
+
+func get_hand(hand_name: String) -> PackedScene:
+    assert(hand_name in player_hands, "Wrong hand name")
+    return player_hands[hand_name]
 
 func instance_scene_on_main(packed_scene: PackedScene, position) -> Node:
+    print("Instance: ", packed_scene)
     var main := get_tree().current_scene
     var instance : Node3D = packed_scene.instantiate()
     main.add_child(instance)

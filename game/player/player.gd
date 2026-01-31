@@ -9,7 +9,7 @@ var simulation: bool = false
 @onready var simulator_component: SimulatorComponent = $SimulatorComponent
 @onready var left_controller: XRControllerComponent = $LeftController
 @onready var right_controller: XRControllerComponent = $RightController
-@onready var function_pointer: XRToolsFunctionPointer = $LeftController/FunctionPointer
+@onready var function_pointer: XRToolsFunctionPointer = $RightController/FunctionPointer
 
 func _ready() -> void:
     Events.game_started.connect(_on_events_game_started)
@@ -38,9 +38,11 @@ func _on_events_game_started() -> void:
 
 func _on_left_controller_recenter() -> void:
     recenter.emit()
+    recenter_player()
 
 func _on_right_controller_recenter() -> void:
     recenter.emit()
+    recenter_player()
 
 func put_on_mask(hand_scene_name: String):
     print("Put on mask: ", hand_scene_name)

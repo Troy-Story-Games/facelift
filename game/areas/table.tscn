@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://8tjqsvhkw8an" path="res://game/areas/table_model.tscn" id="3_ut4ed"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_f8g1j"]
-size = Vector3(2.1796875, 1.3286133, 1.4003906)
+size = Vector3(2.1796875, 1.3286133, 0.984375)
 
 [node name="Table" type="StaticBody3D" unique_id=1804258625]
 collision_layer = 17
@@ -17,22 +17,49 @@ script = ExtResource("1_ut4ed")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.002746582, 0.035042405, 0)
 shape = SubResource("BoxShape3D_f8g1j")
 
-[node name="EnemySpawner" parent="." unique_id=1976505705 node_paths=PackedStringArray("target") instance=ExtResource("2_tsilo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9346385, 0.702754, 0.003000021)
-target = NodePath("../Target")
-
-[node name="EnemySpawner2" parent="." unique_id=955479488 node_paths=PackedStringArray("target") instance=ExtResource("2_tsilo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.96544576, 0.70511985, 0.5899781)
-target = NodePath("../Target")
-
-[node name="EnemySpawner3" parent="." unique_id=275361978 node_paths=PackedStringArray("target") instance=ExtResource("2_tsilo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.96544576, 0.7104559, -0.59174466)
-target = NodePath("../Target")
-
 [node name="Target" type="Marker3D" parent="." unique_id=1134017080]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.63193053, 0.70904565, 0.0050489902)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6861654, 0.70904565, 0.0050489902)
+
+[node name="Target2" type="Marker3D" parent="." unique_id=1742074080]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8873555, 0.70904565, 0.35651457)
+
+[node name="Target3" type="Marker3D" parent="." unique_id=856650099]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9652645, 0.70904565, -0.4366507)
 
 [node name="Tower" parent="." unique_id=545749815 instance=ExtResource("3_tsilo")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.85380507, 0.31949562, 0)
+max_heigh = 1.5
+speed = 0.01
 
 [node name="Table" parent="." unique_id=2006894161 instance=ExtResource("3_ut4ed")]
+
+[node name="ConstructionEnemySpawners" type="Node3D" parent="." unique_id=878232415]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.99464756, 0.7104559, -0.32677844)
+
+[node name="EnemySpawner" parent="ConstructionEnemySpawners" unique_id=1976505705 node_paths=PackedStringArray("target") instance=ExtResource("2_tsilo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.060009062, -0.007701874, 0.32977846)
+target = NodePath("../../Target")
+
+[node name="EnemySpawner2" parent="ConstructionEnemySpawners" unique_id=955479488 node_paths=PackedStringArray("target") instance=ExtResource("2_tsilo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.029201806, -0.005336046, 0.9167565)
+target = NodePath("../../Target")
+
+[node name="EnemySpawner3" parent="ConstructionEnemySpawners" unique_id=275361978 node_paths=PackedStringArray("target") instance=ExtResource("2_tsilo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.029201806, 0, -0.26496622)
+target = NodePath("../../Target")
+
+[node name="ForkliftSpawners" type="Node3D" parent="." unique_id=748412342]
+
+[node name="EnemySpawner4" parent="ForkliftSpawners" unique_id=10747883 node_paths=PackedStringArray("target") instance=ExtResource("2_tsilo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.99464756, 0.7104559, -0.32677844)
+rand_min = 30.0
+rand_max = 120.0
+target = NodePath("../../Target2")
+spawn_type = "forklift_enemy"
+
+[node name="EnemySpawner5" parent="ForkliftSpawners" unique_id=1550525405 node_paths=PackedStringArray("target") instance=ExtResource("2_tsilo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.99464756, 0.7104559, 0.16385302)
+rand_min = 30.0
+rand_max = 120.0
+target = NodePath("../../Target3")
+spawn_type = "forklift_enemy"

@@ -2,7 +2,7 @@ extends CharacterBody3D
 class_name Tower
 
 @export var max_heigh: float = 25.0
-@export var speed: float = 0.025
+@export var speed: float = 0.015
 
 var building: bool = false
 var direction: Vector3 = Vector3.UP

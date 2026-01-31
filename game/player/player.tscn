@@ -43,11 +43,10 @@ hand_material_override = ExtResource("5_gb4gm")
 [node name="MovementDirect" parent="LeftController" unique_id=1868435245 instance=ExtResource("4_epvkq")]
 
 [node name="FunctionPickup" parent="LeftController" unique_id=1977594955 instance=ExtResource("7_uv2nh")]
+grab_distance = 0.2
 grab_collision_mask = 327696
+ranged_enable = false
 ranged_collision_mask = 0
-
-[node name="FunctionPointer" parent="LeftController" unique_id=1838822536 instance=ExtResource("8_uv2nh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02, 0.05, -0.1)
 
 [node name="RightController" type="XRController3D" parent="." unique_id=1062506974]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0, 0)
@@ -61,8 +60,13 @@ hand_material_override = ExtResource("5_gb4gm")
 [node name="MovementTurn" parent="RightController" unique_id=658858190 instance=ExtResource("5_5ghna")]
 
 [node name="FunctionPickup" parent="RightController" unique_id=1132399682 instance=ExtResource("7_uv2nh")]
+grab_distance = 0.2
 grab_collision_mask = 327696
+ranged_enable = false
 ranged_collision_mask = 0
+
+[node name="FunctionPointer" parent="RightController" unique_id=1838822536 instance=ExtResource("8_uv2nh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02, 0.05, -0.1)
 
 [node name="SimulatorComponent" type="Node" parent="." unique_id=1325402762 node_paths=PackedStringArray("player", "right_controller", "left_controller", "camera")]
 script = ExtResource("3_a4w0n")
@@ -82,7 +86,9 @@ push_rigid_bodies = false
 [connection signal="body_entered" from="XRCamera3D/MaskDetectionArea" to="." method="_on_mask_detection_area_body_entered"]
 [connection signal="button_pressed" from="LeftController" to="." method="_on_left_controller_button_pressed"]
 [connection signal="button_released" from="LeftController" to="." method="_on_left_controller_button_released"]
+[connection signal="recenter" from="LeftController" to="." method="_on_left_controller_recenter"]
 [connection signal="has_picked_up" from="LeftController/FunctionPickup" to="." method="_on_function_pickup_left_controller_has_picked_up"]
 [connection signal="button_pressed" from="RightController" to="." method="_on_right_controller_button_pressed"]
 [connection signal="button_released" from="RightController" to="." method="_on_right_controller_button_released"]
+[connection signal="recenter" from="RightController" to="." method="_on_right_controller_recenter"]
 [connection signal="has_picked_up" from="RightController/FunctionPickup" to="." method="_on_function_pickup_right_controller_has_picked_up"]

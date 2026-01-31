@@ -4,6 +4,8 @@
 
 [node name="Mask" type="RigidBody3D" unique_id=49658922]
 collision_layer = 48
+freeze = true
+freeze_mode = 1
 script = ExtResource("1_orx0i")
 release_mode = 1
 metadata/_custom_type_script = "uid://bfrlpbsqg5lqr"

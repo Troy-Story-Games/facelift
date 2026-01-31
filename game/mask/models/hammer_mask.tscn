@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://cjheqpw56lqvb"]
+
+[ext_resource type="PackedScene" uid="uid://v4nl85kbsxai" path="res://game/mask/assets/hammer_mask.glb" id="1_pmdqh"]
+
+[node name="hammer_mask" unique_id=578164646 instance=ExtResource("1_pmdqh")]

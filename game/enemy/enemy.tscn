@@ -1,14 +1,6 @@
 [gd_scene format=3 uid="uid://cf0dsar753dln"]
 
 [ext_resource type="Script" uid="uid://bse8excy5hipn" path="res://game/enemy/enemy.gd" id="1_3dvn5"]
-[ext_resource type="PackedScene" uid="uid://cu8vs27wxhe1f" path="res://game/enemy/enemies/construction_enemy.tscn" id="2_q106d"]
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_q106d"]
-radius = 0.103614315
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_q106d"]
-height = 0.19854736
-radius = 0.036621094
 
 [node name="Enemy" type="RigidBody3D" unique_id=307083412]
 collision_layer = 20
@@ -25,13 +17,9 @@ collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="EnemyHitbox" unique_id=1053317259]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.10142492, 0)
-shape = SubResource("SphereShape3D_q106d")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1686408879]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.105822444, 0)
-shape = SubResource("CylinderShape3D_q106d")
-
-[node name="ConstructionEnemy" parent="." unique_id=878544191 instance=ExtResource("2_q106d")]
 
 [node name="DespawnTimer" type="Timer" parent="." unique_id=1567202209]
 wait_time = 30.0

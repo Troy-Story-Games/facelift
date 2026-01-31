@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cgx3l6y72fhwm"]
+
+[ext_resource type="PackedScene" uid="uid://cf0dsar753dln" path="res://game/enemy/enemy.tscn" id="1_7kn45"]
+[ext_resource type="PackedScene" uid="uid://bysy5ba7gmrfl" path="res://game/enemy/models/forklift_enemy.tscn" id="2_ximyj"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7kn45"]
+radius = 0.19541246
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7kn45"]
+size = Vector3(0.10131836, 0.18988037, 0.21313477)
+
+[node name="ForkliftEnemy" unique_id=307083412 instance=ExtResource("1_7kn45")]
+collision_layer = 4
+speed = 0.1
+enemy_type = ExtResource("2_ximyj")
+can_grab_enemy = false
+
+[node name="CollisionShape3D" parent="EnemyHitbox" parent_id_path=PackedInt32Array(1965724206) index="0" unique_id=1053317259]
+shape = SubResource("SphereShape3D_7kn45")
+
+[node name="CollisionShape3D" parent="." index="1" unique_id=1686408879]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.09675872, 0)
+shape = SubResource("BoxShape3D_7kn45")

@@ -55,18 +55,18 @@ mesh = SubResource("BoxMesh_14vxq")
 shape = SubResource("BoxShape3D_f3yyr")
 
 [node name="Table" parent="." unique_id=903607088 instance=ExtResource("3_o3d45")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01643759, -0.93788046)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.12893671, -0.38354272)
 
 [node name="MaskTable" type="CSGBox3D" parent="." unique_id=2072923012]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2588799, 0.28155166, 0.26606375)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2588799, -0.12211591, 0.68571335)
 material_override = SubResource("StandardMaterial3D_wpsqn")
 use_collision = true
 
 [node name="SpectralMask" parent="MaskTable" unique_id=49658922 instance=ExtResource("4_f3yyr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.43315196, 0.5506606, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.98304784, 0.63563347, -0.548682)
 
 [node name="HammerMask" parent="MaskTable" unique_id=391040737 instance=ExtResource("5_ypvhv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.58095455, 0)
+transform = Transform3D(1, 0, 0, 0, 2.9802322e-08, -1, 0, 1, 2.9802322e-08, -0.78110445, 0.5935978, -0.53918564)
 
 [node name="MainMenu3D" parent="." unique_id=1379790286 instance=ExtResource("7_ywnj1")]
 transform = Transform3D(0.9999907, 0, -0.004328251, 0, 1, 0, 0.004328251, 0, 0.9999907, 0.08894166, 2.2967482, -2.6219475)

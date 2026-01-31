@@ -1,6 +1,9 @@
 extends CanvasLayer
 class_name MainMenu
 
+func _ready() -> void:
+    Music.play("main_menu")
+
 func _on_play_button_pressed() -> void:
     Events.game_started.emit()
 
