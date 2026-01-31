@@ -2,8 +2,6 @@
 
 [ext_resource type="Script" uid="uid://rfknplk4oq1k" path="res://game/game.gd" id="1_vasa2"]
 [ext_resource type="PackedScene" uid="uid://4ksndm8ygrgl" path="res://game/player/player.tscn" id="2_h7iqs"]
-[ext_resource type="PackedScene" uid="uid://bqumugyvkct4r" path="res://addons/godot-xr-tools/staging/loading_screen.tscn" id="4_dxrkv"]
-[ext_resource type="PackedScene" uid="uid://wtpox7m5vu2b" path="res://addons/godot-xr-tools/effects/fade.tscn" id="5_dakft"]
 [ext_resource type="Texture2D" uid="uid://bd1ewkxy2o5b6" path="res://logo.png" id="5_u5opy"]
 
 [node name="Game" type="Node3D" unique_id=1497426660]
@@ -12,8 +10,8 @@ script = ExtResource("1_vasa2")
 [node name="Player" parent="." unique_id=517828937 instance=ExtResource("2_h7iqs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[node name="LoadingScreen" parent="." unique_id=1165574431 instance=ExtResource("4_dxrkv")]
+[node name="LoadingScreen" parent="." unique_id=1165574431]
 visible = false
 splash_screen = ExtResource("5_u5opy")
 
-[node name="Fade" parent="." unique_id=1850786262 instance=ExtResource("5_dakft")]
+[node name="Fade" parent="." unique_id=1850786262]
