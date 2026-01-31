@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://bu58e47fwer07"]
+
+[ext_resource type="Script" uid="uid://dmc85emc2a7gc" path="res://main_menu.gd" id="1_06t4h"]
+
+[node name="Main Menu" type="Control" unique_id=517872412]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_06t4h")
+
+[node name="Play Button" type="Button" parent="." unique_id=1152234546]
+layout_mode = 0
+offset_left = 461.0
+offset_top = 149.0
+offset_right = 682.44995
+offset_bottom = 205.9884
+text = "Play"
+
+[node name="Exit Button" type="Button" parent="." unique_id=1185375885]
+layout_mode = 0
+offset_left = 459.0
+offset_top = 250.0
+offset_right = 680.44995
+offset_bottom = 306.9884
+text = "Exit"
+
+[node name="Title" type="Label" parent="." unique_id=1426670827]
+layout_mode = 0
+offset_left = 447.0
+offset_top = 88.0
+offset_right = 690.0
+offset_bottom = 111.0
+text = "GGJ VR Project (PLACEHOLDR!!!)"
+
+[node name="Credits" type="Label" parent="." unique_id=1268968465]
+layout_mode = 0
+offset_left = 832.0
+offset_top = 78.0
+offset_right = 1075.0
+offset_bottom = 577.0
+text = "Credits:
+Go Here"
+
+[connection signal="pressed" from="Play Button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Exit Button" to="." method="_on_exit_button_pressed"]
