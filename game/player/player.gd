@@ -43,3 +43,8 @@ func _on_left_controller_recenter() -> void:
 
 func _on_right_controller_recenter() -> void:
     recenter.emit()
+
+func _on_mask_detection_area_body_entered(body: Node3D) -> void:
+    # if body is Mask:
+    # logic
+    print("Body entered area: ", body)

@@ -10,6 +10,7 @@
 script = ExtResource("1_vasa2")
 
 [node name="Player" parent="." unique_id=517828937 instance=ExtResource("2_h7iqs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="LoadingScreen" parent="." unique_id=1165574431 instance=ExtResource("4_dxrkv")]
 visible = false

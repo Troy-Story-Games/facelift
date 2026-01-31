@@ -26,6 +26,7 @@ config/icon="res://icon.svg"
 XRToolsUserSettings="*uid://bqgb8i74tm0t"
 XRToolsRumbleManager="*uid://by853dk86g1qw"
 Events="*res://game/utils/events.gd"
+Utils="*uid://cju1j2qbxxgsb"
 
 [editor_plugins]
 
