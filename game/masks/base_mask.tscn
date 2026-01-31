@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://c35mcbs6a44i"]
+
+[ext_resource type="Script" uid="uid://cyxna4uh412g8" path="res://game/masks/base_mask.gd" id="1_orx0i"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_orx0i"]
+size = Vector3(1, 1, 0.07055664)
+
+[node name="BaseMask" type="RigidBody3D" unique_id=181695483]
+script = ExtResource("1_orx0i")
+
+[node name="BaseMaskObject" type="CollisionShape3D" parent="." unique_id=1584545927]
+shape = SubResource("BoxShape3D_orx0i")
+debug_color = Color(0.53333336, 0.5411765, 0.49803922, 1)

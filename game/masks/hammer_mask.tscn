@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://ckghewccwrsbc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5b6hd"]
+size = Vector3(1.5976563, 0.9815674, 0.4942627)
+
+[node name="HammerMask" type="Node3D" unique_id=2033139921]
+
+[node name="BaseMaskObject" type="CollisionShape3D" parent="." unique_id=2064208372]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18078321, -0.009216309, -0.21185303)
+shape = SubResource("BoxShape3D_5b6hd")
+debug_color = Color(0.53333336, 0.5411765, 0.49803922, 1)
