@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dw6tmtwb742mc"]
+
+[ext_resource type="Script" uid="uid://c4iqansg0q4t8" path="res://game/tower/tower.gd" id="1_ai1s4"]
+[ext_resource type="PackedScene" uid="uid://xfb57ilntfmd" path="res://game/tower/tower_model.tscn" id="2_r78r8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ai1s4"]
+size = Vector3(0.70703125, 1.6664734, 0.797699)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_r78r8"]
+height = 1.545166
+radius = 0.13769531
+
+[node name="Tower" type="CharacterBody3D" unique_id=545749815]
+collision_mask = 0
+script = ExtResource("1_ai1s4")
+
+[node name="Tower" parent="." unique_id=483817414 instance=ExtResource("2_r78r8")]
+
+[node name="BuildArea" type="Area3D" parent="." unique_id=1733727150]
+collision_layer = 0
+collision_mask = 64
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BuildArea" unique_id=529922928]
+shape = SubResource("BoxShape3D_ai1s4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=736349799]
+shape = SubResource("CylinderShape3D_r78r8")
+
+[connection signal="area_entered" from="BuildArea" to="." method="_on_build_area_area_entered"]
+[connection signal="area_exited" from="BuildArea" to="." method="_on_build_area_area_exited"]

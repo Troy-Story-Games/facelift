@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://xfb57ilntfmd"]
+
+[ext_resource type="PackedScene" uid="uid://bt52k0n50locv" path="res://game/tower/assets/Tower.glb" id="1_44kl5"]
+
+[node name="Tower" unique_id=1268819132 instance=ExtResource("1_44kl5")]
+
+[node name="Cylinder" parent="." index="0" unique_id=494360471]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)

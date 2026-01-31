@@ -11,9 +11,10 @@
 [ext_resource type="Material" uid="uid://ds2dpvbpht0ea" path="res://addons/godot-xr-tools/hands/materials/labglove.tres" id="5_gb4gm"]
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="7_uv2nh"]
 [ext_resource type="PackedScene" uid="uid://raeeicvvindd" path="res://addons/godot-xr-tools/hands/scenes/highpoly/right_hand.tscn" id="8_gb4gm"]
+[ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="8_uv2nh"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_anr75"]
-radius = 0.08393856
+radius = 0.13109107
 
 [node name="Player" type="XROrigin3D" unique_id=508514659]
 script = ExtResource("1_ywqt8")
@@ -24,6 +25,8 @@ current = true
 [node name="VRCommonShaderCache" parent="XRCamera3D" unique_id=1098049451 instance=ExtResource("2_40wtu")]
 
 [node name="MaskDetectionArea" type="Area3D" parent="XRCamera3D" unique_id=1064199200]
+collision_layer = 0
+collision_mask = 32
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="XRCamera3D/MaskDetectionArea" unique_id=1816848854]
 shape = SubResource("SphereShape3D_anr75")
@@ -40,6 +43,11 @@ hand_material_override = ExtResource("5_gb4gm")
 [node name="MovementDirect" parent="LeftController" unique_id=1868435245 instance=ExtResource("4_epvkq")]
 
 [node name="FunctionPickup" parent="LeftController" unique_id=1977594955 instance=ExtResource("7_uv2nh")]
+grab_collision_mask = 327696
+ranged_collision_mask = 0
+
+[node name="FunctionPointer" parent="LeftController" unique_id=1838822536 instance=ExtResource("8_uv2nh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02, 0.05, -0.1)
 
 [node name="RightController" type="XRController3D" parent="." unique_id=1062506974]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0, 0)
@@ -53,6 +61,8 @@ hand_material_override = ExtResource("5_gb4gm")
 [node name="MovementTurn" parent="RightController" unique_id=658858190 instance=ExtResource("5_5ghna")]
 
 [node name="FunctionPickup" parent="RightController" unique_id=1132399682 instance=ExtResource("7_uv2nh")]
+grab_collision_mask = 327696
+ranged_collision_mask = 0
 
 [node name="SimulatorComponent" type="Node" parent="." unique_id=1325402762 node_paths=PackedStringArray("player", "right_controller", "left_controller", "camera")]
 script = ExtResource("3_a4w0n")
@@ -63,6 +73,11 @@ camera = NodePath("../XRCamera3D")
 metadata/_custom_type_script = "uid://cmbucw30474iw"
 
 [node name="PlayerBody" parent="." unique_id=1621455377 instance=ExtResource("3_8soms")]
+collision_layer = 524290
+collision_mask = 0
+motion_mode = 1
+enabled = false
+push_rigid_bodies = false
 
 [connection signal="body_entered" from="XRCamera3D/MaskDetectionArea" to="." method="_on_mask_detection_area_body_entered"]
 [connection signal="button_pressed" from="LeftController" to="." method="_on_left_controller_button_pressed"]

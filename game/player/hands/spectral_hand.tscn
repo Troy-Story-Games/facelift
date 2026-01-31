@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://1ubjdf4dacfi"]
+
+[ext_resource type="PackedScene" uid="uid://d03cx6bm6go3o" path="res://game/player/player_hand.tscn" id="1_y04qk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y04qk"]
+albedo_color = Color(0.5429741, 0.05032651, 0.7688017, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_y04qk"]
+material = SubResource("StandardMaterial3D_y04qk")
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="SpectralHand" unique_id=1901008799 instance=ExtResource("1_y04qk")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="0" unique_id=167897599]
+mesh = SubResource("BoxMesh_y04qk")

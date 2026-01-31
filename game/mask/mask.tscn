@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://c35mcbs6a44i"]
+
+[ext_resource type="Script" uid="uid://cyxna4uh412g8" path="res://game/mask/mask.gd" id="1_orx0i"]
+
+[node name="Mask" type="RigidBody3D" unique_id=49658922]
+collision_layer = 48
+script = ExtResource("1_orx0i")
+release_mode = 1
+metadata/_custom_type_script = "uid://bfrlpbsqg5lqr"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1841739251]

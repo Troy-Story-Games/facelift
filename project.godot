@@ -27,6 +27,12 @@ XRToolsUserSettings="*uid://bqgb8i74tm0t"
 XRToolsRumbleManager="*uid://by853dk86g1qw"
 Events="*res://game/utils/events.gd"
 Utils="*uid://cju1j2qbxxgsb"
+Music="*uid://c662g50vawgbs"
+SoundFx="*uid://c7evl42jh712p"
+
+[debug]
+
+settings/stdout/verbose_stdout=true
 
 [editor_plugins]
 
@@ -113,6 +119,9 @@ simulator_menu_button={
 3d_physics/layer_2="player"
 3d_physics/layer_3="enemy"
 3d_physics/layer_4="enemy_bones"
+3d_physics/layer_5="pickable"
+3d_physics/layer_6="mask"
+3d_physics/layer_7="enemy_hitbox"
 
 [physics]
 
@@ -136,3 +145,4 @@ openxr/submit_depth_buffer=true
 openxr/startup_alert=false
 shaders/enabled=true
 openxr/extensions/meta/color_space/starting_color_space=3
+openxr/extensions/meta/passthrough=true

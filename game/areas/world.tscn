@@ -2,8 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://wo8657imnrlb" path="res://assets/prototype_dark.png" id="1_agbf7"]
 [ext_resource type="Script" uid="uid://bdalepkw6gu6w" path="res://game/areas/world.gd" id="1_ypvhv"]
-[ext_resource type="PackedScene" uid="uid://bf1gieq3a0tqq" path="res://game/enemy/enemy_spawner.tscn" id="2_f8g1j"]
-[ext_resource type="Texture2D" uid="uid://batf3s6mht5mw" path="res://assets/prototype_purple.png" id="2_o3d45"]
+[ext_resource type="PackedScene" uid="uid://cm21udi0bbah6" path="res://game/areas/table.tscn" id="3_o3d45"]
+[ext_resource type="PackedScene" uid="uid://dtdxhr2eocfbf" path="res://game/mask/masks/spectral_mask.tscn" id="4_f3yyr"]
+[ext_resource type="PackedScene" uid="uid://h725ykkwjqpb" path="res://game/mask/masks/hammer_mask.tscn" id="5_ypvhv"]
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="7_ywnj1"]
+[ext_resource type="PackedScene" uid="uid://cp0knxexve0vr" path="res://game/menus/main_menu.tscn" id="8_fin68"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_agbf7"]
 
@@ -28,16 +31,9 @@ size = Vector3(15, 0.1, 15)
 [sub_resource type="BoxShape3D" id="BoxShape3D_f3yyr"]
 size = Vector3(15, 0.1, 15)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f3yyr"]
-albedo_texture = ExtResource("2_o3d45")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wpsqn"]
+albedo_texture = ExtResource("1_agbf7")
 uv1_triplanar = true
-
-[sub_resource type="BoxMesh" id="BoxMesh_o3d45"]
-material = SubResource("StandardMaterial3D_f3yyr")
-size = Vector3(1.5, 1.5, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_f8g1j"]
-size = Vector3(1.5, 1.5, 1)
 
 [node name="World" type="Node3D" unique_id=143279455]
 script = ExtResource("1_ypvhv")
@@ -50,6 +46,7 @@ transform = Transform3D(1, 0, 0, 0, 0.7071068, 0.7071068, 0, -0.7071068, 0.70710
 
 [node name="Floor" type="MeshInstance3D" parent="." unique_id=470060127]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
+visible = false
 mesh = SubResource("BoxMesh_14vxq")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Floor" unique_id=892369506]
@@ -57,18 +54,23 @@ mesh = SubResource("BoxMesh_14vxq")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D" unique_id=1017276277]
 shape = SubResource("BoxShape3D_f3yyr")
 
-[node name="Table" type="MeshInstance3D" parent="." unique_id=1736838272]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, -1.1)
-mesh = SubResource("BoxMesh_o3d45")
+[node name="Table" parent="." unique_id=903607088 instance=ExtResource("3_o3d45")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01643759, -0.93788046)
 
-[node name="EnemySpawner" parent="Table" unique_id=1976505705 node_paths=PackedStringArray("target") instance=ExtResource("2_f8g1j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6804783, 0.82213235, 0.003000021)
-target = NodePath("../Target")
+[node name="MaskTable" type="CSGBox3D" parent="." unique_id=2072923012]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2588799, 0.28155166, 0.26606375)
+material_override = SubResource("StandardMaterial3D_wpsqn")
+use_collision = true
 
-[node name="Target" type="Marker3D" parent="Table" unique_id=354962170]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.71146834, 0.76680946, 0.0050489902)
+[node name="SpectralMask" parent="MaskTable" unique_id=49658922 instance=ExtResource("4_f3yyr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.43315196, 0.5506606, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Table" unique_id=533840638]
+[node name="HammerMask" parent="MaskTable" unique_id=391040737 instance=ExtResource("5_ypvhv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.58095455, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Table/StaticBody3D" unique_id=1155732757]
-shape = SubResource("BoxShape3D_f8g1j")
+[node name="MainMenu3D" parent="." unique_id=1379790286 instance=ExtResource("7_ywnj1")]
+transform = Transform3D(0.9999907, 0, -0.004328251, 0, 1, 0, 0.004328251, 0, 0.9999907, 0.08894166, 2.2967482, -2.6219475)
+scene = ExtResource("8_fin68")
+viewport_size = Vector2(1152, 648)
+transparent = 1
+scene_properties_keys = PackedStringArray("main_menu.gd")

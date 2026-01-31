@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://8tjqsvhkw8an"]
+
+[ext_resource type="PackedScene" uid="uid://dsqftrut5whxy" path="res://game/areas/assets/Table.glb" id="1_54aiq"]
+
+[node name="Table" unique_id=2006894161 instance=ExtResource("1_54aiq")]
+
+[node name="Cube" parent="." index="0" unique_id=797761896]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
