@@ -67,5 +67,7 @@ metadata/_custom_type_script = "uid://cmbucw30474iw"
 [connection signal="body_entered" from="XRCamera3D/MaskDetectionArea" to="." method="_on_mask_detection_area_body_entered"]
 [connection signal="button_pressed" from="LeftController" to="." method="_on_left_controller_button_pressed"]
 [connection signal="button_released" from="LeftController" to="." method="_on_left_controller_button_released"]
+[connection signal="has_picked_up" from="LeftController/FunctionPickup" to="." method="_on_function_pickup_left_controller_has_picked_up"]
 [connection signal="button_pressed" from="RightController" to="." method="_on_right_controller_button_pressed"]
 [connection signal="button_released" from="RightController" to="." method="_on_right_controller_button_released"]
+[connection signal="has_picked_up" from="RightController/FunctionPickup" to="." method="_on_function_pickup_right_controller_has_picked_up"]
