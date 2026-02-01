@@ -12,13 +12,13 @@
 [ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="8_uv2nh"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_anr75"]
-radius = 0.12641867
+radius = 0.115
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_j0mij"]
-radius = 0.09
+radius = 0.061639667
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_gb4gm"]
-radius = 0.09
+radius = 0.062
 
 [node name="Player" type="XROrigin3D" unique_id=508514659]
 script = ExtResource("1_ywqt8")
@@ -70,11 +70,12 @@ ranged_enable = false
 ranged_collision_mask = 0
 
 [node name="MaskRemovalArea" type="Area3D" parent="LeftController" unique_id=266772741]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.05556491)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06510015, 0.009075638, -0.05556491)
 collision_layer = 256
 collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LeftController/MaskRemovalArea" unique_id=1076917699]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.018933505, 0, 0)
 shape = SubResource("SphereShape3D_j0mij")
 
 [node name="RightController" type="XRController3D" parent="." unique_id=1062506974]
@@ -96,7 +97,7 @@ ranged_collision_mask = 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02, 0.05, -0.1)
 
 [node name="MaskRemovalArea" type="Area3D" parent="RightController" unique_id=377438247]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.05874689)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.042704612, 0.007865548, -0.022495423)
 collision_layer = 256
 collision_mask = 0
 

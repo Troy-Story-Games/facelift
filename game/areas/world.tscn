@@ -17,6 +17,9 @@
 [ext_resource type="PackedScene" uid="uid://cvr6mkdtspslh" path="res://game/menus/menu_tutorial_card_3d.tscn" id="14_dvrlu"]
 [ext_resource type="PackedScene" uid="uid://xfb57ilntfmd" path="res://game/tower/tower_model.tscn" id="15_tl63b"]
 [ext_resource type="PackedScene" uid="uid://do8jifmlfaa13" path="res://game/areas/trash_can.tscn" id="17_lgr31"]
+[ext_resource type="PackedScene" uid="uid://bx3j0vdswhbka" path="res://game/fx/recycle_sparkles.tscn" id="18_5o27n"]
+[ext_resource type="PackedScene" uid="uid://bwtr1otoirp2j" path="res://game/menus/game_over_menu_2d.tscn" id="18_hf0hu"]
+[ext_resource type="PackedScene" uid="uid://c3hgqex67i4xm" path="res://game/areas/assets/AltRoom.glb" id="19_ul4mb"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_agbf7"]
 
@@ -40,6 +43,9 @@ uv1_triplanar = true
 [sub_resource type="BoxMesh" id="BoxMesh_14vxq"]
 material = SubResource("StandardMaterial3D_o3d45")
 size = Vector3(15, 0.1, 15)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ul4mb"]
+size = Vector3(24.076416, 11.6640625, 1)
 
 [node name="World" type="Node3D" unique_id=143279455]
 script = ExtResource("1_ypvhv")
@@ -88,8 +94,22 @@ transform = Transform3D(1, 0, 4.656613e-10, 0, 1, 0, -4.656613e-10, 0, 1, 0, 0.0
 transform = Transform3D(1, 0, 9.313226e-09, 0, 1, 0, -9.313226e-09, 0, 1, 0.3956702, -0.6884849, 1.5204204)
 
 [node name="Skeleton3D" parent="MainMenu3D/ConstructorTutorial/construction_enemy/Constructor" parent_id_path=PackedInt32Array(878544191, 227476989) index="0" unique_id=1300441590]
-bones/0/rotation = Quaternion(-4.214684e-08, -0.70710665, 6.2803846e-16, 0.7071069)
-bones/9/rotation = Quaternion(-0.07660661, 0.35744888, 0.9106974, 0.1923329)
+bones/0/position = Vector3(-0.00017031813, 0.067830436, -0.006351581)
+bones/1/position = Vector3(-0.004840311, -0.0628303, -0.01794402)
+bones/1/rotation = Quaternion(0.49999982, 0.5000003, -0.49999952, 0.50000036)
+bones/2/position = Vector3(-0.004840324, -0.06293866, 0.018314116)
+bones/2/rotation = Quaternion(0.49999988, 0.50000024, -0.49999958, 0.5000003)
+bones/3/rotation = Quaternion(2.9381455e-21, 0, 8.4703295e-22, 1)
+bones/4/rotation = Quaternion(2.9381455e-21, 0, 8.4703295e-22, 1)
+bones/5/rotation = Quaternion(0.8371476, 0.13004093, -0.22652312, -0.48058358)
+bones/6/rotation = Quaternion(0.25212878, 0.252129, -0.068223365, 0.9317766)
+bones/7/rotation = Quaternion(0.8674578, -3.8214694e-08, 2.6788769e-07, 0.49751076)
+bones/8/rotation = Quaternion(-0.24760333, 1.9330116e-08, -9.5882896e-08, 0.9688615)
+bones/9/position = Vector3(-5.1912696e-10, 7.4302773e-09, -2.5379698e-13)
+bones/10/rotation = Quaternion(-0.35839564, -0.0720479, 0.20391579, 0.90817404)
+bones/11/position = Vector3(-5.1912696e-10, 7.4302773e-09, -2.5379698e-13)
+bones/11/rotation = Quaternion(0.9158582, -0.20407158, -0.07631767, -0.337245)
+bones/12/rotation = Quaternion(-0.33818957, 0.072016634, -0.21571921, 0.9131849)
 
 [node name="ConstructorMesh" parent="MainMenu3D/ConstructorTutorial/construction_enemy/Constructor/Skeleton3D" index="0" unique_id=1918724958]
 transform = Transform3D(1, 0, 9.313226e-10, 0, 1, 0, -9.313226e-10, 0, 1, 0, 0, 0)
@@ -109,24 +129,24 @@ transform = Transform3D(1, 0, 4.656613e-10, 0, 1, 0, -4.656613e-10, 0, 1, 0, 0.0
 transform = Transform3D(1, 0, 9.778887e-09, 0, 1, 0, -9.778887e-09, 0, 1, -0.097991735, -0.7023493, 1.509623)
 
 [node name="Skeleton3D" parent="MainMenu3D/SpectralTutorial/SpectralEnemy/Ghost" parent_id_path=PackedInt32Array(1406747159, 1932793693) index="0" unique_id=1089590684]
-bones/0/position = Vector3(-0.00017031813, 0.079460315, -0.0063515813)
-bones/0/rotation = Quaternion(-4.214684e-08, -0.70710665, 6.2803846e-16, 0.7071069)
-bones/1/position = Vector3(-0.05244294, -0.06226021, -0.017944034)
-bones/1/rotation = Quaternion(0.63098395, 0.31915447, -0.63098353, 0.3191544)
-bones/2/position = Vector3(0.02820334, -0.053685512, 0.018314125)
-bones/2/rotation = Quaternion(0.18694432, 0.68194705, -0.18694419, 0.6819472)
-bones/3/rotation = Quaternion(5.876291e-21, 0, 8.4703295e-22, 1)
-bones/4/rotation = Quaternion(5.876291e-21, 0, 8.4703295e-22, 1)
-bones/5/rotation = Quaternion(0.8565139, 0.18049298, -0.13606109, -0.46399736)
-bones/6/rotation = Quaternion(-0.07643313, 0.5251616, -0.4437171, 0.72213465)
-bones/7/rotation = Quaternion(0.87669986, -0.054978915, 0.089696795, 0.46939245)
-bones/8/rotation = Quaternion(0.042107113, -0.3363476, 0.1469679, 0.9292458)
-bones/9/position = Vector3(9.63809e-10, 5.708628e-09, 1.4501832e-09)
-bones/9/rotation = Quaternion(-0.07660661, 0.35744888, 0.9106974, 0.1923329)
-bones/10/rotation = Quaternion(-0.3401982, 0.07683817, 0.5419777, 0.7646053)
-bones/11/position = Vector3(1.8391244e-10, 0.0019953228, -0.003135503)
-bones/11/rotation = Quaternion(0.84388036, -0.18783094, -0.11040434, -0.49030235)
-bones/12/rotation = Quaternion(-0.452596, 0.22219473, 0.12945765, 0.85383093)
+bones/0/position = Vector3(-0.00017031813, 0.067830436, -0.006351581)
+bones/0/rotation = Quaternion(-4.214684e-08, -0.70710665, 1.2560737e-15, 0.7071069)
+bones/1/position = Vector3(-0.004840311, -0.0628303, -0.01794402)
+bones/1/rotation = Quaternion(0.49999982, 0.5000003, -0.49999952, 0.50000036)
+bones/2/position = Vector3(-0.004840324, -0.06293866, 0.018314116)
+bones/2/rotation = Quaternion(0.49999988, 0.50000024, -0.49999958, 0.5000003)
+bones/3/rotation = Quaternion(2.9381455e-21, 0, 8.4703295e-22, 1)
+bones/4/rotation = Quaternion(2.9381455e-21, 0, 8.4703295e-22, 1)
+bones/5/rotation = Quaternion(0.8371476, 0.13004093, -0.22652312, -0.48058358)
+bones/6/rotation = Quaternion(0.25212878, 0.252129, -0.068223365, 0.9317766)
+bones/7/rotation = Quaternion(0.8674578, -3.8214694e-08, 2.6788769e-07, 0.49751076)
+bones/8/rotation = Quaternion(-0.24760333, 1.9330116e-08, -9.5882896e-08, 0.9688615)
+bones/9/position = Vector3(-5.1912696e-10, 7.4302773e-09, -2.5379698e-13)
+bones/9/rotation = Quaternion(-0.0766066, 0.35744888, 0.9106974, 0.1923329)
+bones/10/rotation = Quaternion(-0.35839564, -0.0720479, 0.20391579, 0.90817404)
+bones/11/position = Vector3(-5.1912696e-10, 7.4302773e-09, -2.5379698e-13)
+bones/11/rotation = Quaternion(0.9158582, -0.20407158, -0.07631767, -0.337245)
+bones/12/rotation = Quaternion(-0.33818957, 0.072016634, -0.21571921, 0.9131849)
 
 [node name="AnimationPlayer" parent="MainMenu3D/SpectralTutorial/SpectralEnemy" index="1" unique_id=1085800521]
 autoplay = &"ConstructorWalking"
@@ -184,7 +204,48 @@ scene = ExtResource("8_ywnj1")
 scene_properties_keys = PackedStringArray("score_board.gd")
 
 [node name="TrashCan" parent="." unique_id=145948585 instance=ExtResource("17_lgr31")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0039647818, 0.41642064, -2.6814349)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03396654, 0.2948478, -2.4003458)
+
+[node name="GPUParticles3D" parent="TrashCan" unique_id=2132751164 instance=ExtResource("18_5o27n")]
+transform = Transform3D(-0.9998825, 0, -0.015323427, 0, 1, 0, 0.015323427, 0, -0.9998825, 0, 0.3387853, 0)
+
+[node name="GameOverMenu3D" parent="." unique_id=2088928069 instance=ExtResource("7_ywnj1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2616541, -1.9393263)
+visible = false
+scene = ExtResource("18_hf0hu")
+viewport_size = Vector2(1152, 648)
+scene_properties_keys = PackedStringArray("game_over_menu_2d.gd")
+
+[node name="AltRoom" parent="." unique_id=43520017 instance=ExtResource("19_ul4mb")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0.36597306, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="AltRoom" unique_id=1892302567]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.1972632)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AltRoom/StaticBody3D" unique_id=1986157759]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.920166, -0.19726753)
+shape = SubResource("BoxShape3D_ul4mb")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="AltRoom" unique_id=1604027405]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.522827)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AltRoom/StaticBody3D2" unique_id=1796883077]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.920166, -0.19726753)
+shape = SubResource("BoxShape3D_ul4mb")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="AltRoom" unique_id=1062914727]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10.762868, 0, 1.1722213)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AltRoom/StaticBody3D3" unique_id=984767979]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.920166, -0.19726753)
+shape = SubResource("BoxShape3D_ul4mb")
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="AltRoom" unique_id=84264659]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 11.158153, 0, 1.1722213)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AltRoom/StaticBody3D4" unique_id=1829004110]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.920166, -0.19726753)
+shape = SubResource("BoxShape3D_ul4mb")
 
 [editable path="MainMenu3D/ConstructorTutorial/construction_enemy"]
 [editable path="MainMenu3D/SpectralTutorial/SpectralEnemy"]

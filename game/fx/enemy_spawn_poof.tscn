@@ -1,13 +1,13 @@
-[gd_scene format=3 uid="uid://bdcfvt20yeadt"]
+[gd_scene format=3 uid="uid://bgu0yjyskrdfg"]
 
 [ext_resource type="Texture2D" uid="uid://ccbhtyupc1id6" path="res://game/fx/poof_anim.png" id="1_bdmwk"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ydpqf"]
 lifetime_randomness = 1.0
 emission_shape = 6
-emission_ring_axis = Vector3(0, 0, 1)
-emission_ring_height = 0.1
-emission_ring_radius = 1.0
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 0.05
+emission_ring_radius = 0.03
 emission_ring_inner_radius = 0.0
 emission_ring_cone_angle = 90.0
 direction = Vector3(3, 0, 3)
@@ -25,30 +25,21 @@ scale_max = 0.099999994
 transparency = 1
 shading_mode = 0
 albedo_texture = ExtResource("1_bdmwk")
+billboard_mode = 2
+billboard_keep_scale = true
 
 [sub_resource type="QuadMesh" id="QuadMesh_l8jjf"]
 material = SubResource("StandardMaterial3D_bdmwk")
 size = Vector2(0.5, 0.5)
-orientation = 0
-
-[sub_resource type="SphereMesh" id="SphereMesh_yfcjt"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_niyuv"]
-albedo_texture = ExtResource("1_bdmwk")
 
 [node name="GPUParticles3D" type="GPUParticles3D" unique_id=2132751164]
-transform = Transform3D(-3.496911e-10, -0.01, 0, 0.008, -4.3711387e-10, 0, 0, 0, 0.024, 0, 0, 0)
+transform = Transform3D(-0.9998825, 0, -0.015323427, 0, 1, 0, 0.015323427, 0, -0.9998825, 0, 0, 0)
 layers = 17
 emitting = false
-amount = 25
-lifetime = 0.5
+amount = 32
+lifetime = 0.45
 one_shot = true
-explosiveness = 0.5
+explosiveness = 0.41
 randomness = 1.0
 process_material = SubResource("ParticleProcessMaterial_ydpqf")
 draw_pass_1 = SubResource("QuadMesh_l8jjf")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1317834904]
-transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
-mesh = SubResource("SphereMesh_yfcjt")
-surface_material_override/0 = SubResource("StandardMaterial3D_niyuv")

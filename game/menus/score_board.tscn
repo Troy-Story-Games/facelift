@@ -42,3 +42,13 @@ horizontal_alignment = 1
 layout_mode = 2
 text = "XXXXXXXXXXXX"
 horizontal_alignment = 1
+
+[node name="HighscoreLabel" type="Label" parent="Control2/Control/VBoxContainer" unique_id=675992948]
+layout_mode = 2
+text = "HIGHSCORE"
+horizontal_alignment = 1
+
+[node name="Highscore" type="Label" parent="Control2/Control/VBoxContainer" unique_id=1280607142]
+layout_mode = 2
+text = "XXXXXXXXXXXX"
+horizontal_alignment = 1

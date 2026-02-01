@@ -1,51 +1,51 @@
-[gd_scene load_steps=2 format=3 uid="uid://c7evl42jh712p"]
+[gd_scene format=3 uid="uid://c7evl42jh712p"]
 
 [ext_resource type="Script" uid="uid://dnbyu80otth8a" path="res://game/audio/soundfx/sound_fx.gd" id="1_7lw36"]
 
-[node name="SoundFX" type="Node"]
+[node name="SoundFX" type="Node" unique_id=1396851326]
 process_mode = 3
 script = ExtResource("1_7lw36")
 
-[node name="StreamPlayers" type="Node" parent="."]
+[node name="StreamPlayers" type="Node" parent="." unique_id=1181262423]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="StreamPlayers"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="StreamPlayers" unique_id=1035694254]
 bus = &"SoundFX"
 
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="StreamPlayers"]
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="StreamPlayers" unique_id=1539411486]
 bus = &"SoundFX"
 
-[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="StreamPlayers"]
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="StreamPlayers" unique_id=564754935]
 bus = &"SoundFX"
 
-[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="StreamPlayers"]
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="StreamPlayers" unique_id=1565884646]
 bus = &"SoundFX"
 
-[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="StreamPlayers"]
+[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="StreamPlayers" unique_id=1687413494]
 bus = &"SoundFX"
 
-[node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="StreamPlayers"]
+[node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="StreamPlayers" unique_id=1090339199]
 bus = &"SoundFX"
 
-[node name="AudioStreamPlayer7" type="AudioStreamPlayer" parent="StreamPlayers"]
+[node name="AudioStreamPlayer7" type="AudioStreamPlayer" parent="StreamPlayers" unique_id=705508222]
 bus = &"SoundFX"
 
-[node name="AudioStreamPlayer8" type="AudioStreamPlayer" parent="StreamPlayers"]
+[node name="AudioStreamPlayer8" type="AudioStreamPlayer" parent="StreamPlayers" unique_id=353357455]
 bus = &"SoundFX"
 
-[node name="StreamPlayers2D" type="Node" parent="."]
+[node name="StreamPlayers3D" type="Node" parent="." unique_id=1428370359]
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="StreamPlayers2D"]
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="StreamPlayers3D" unique_id=1527417925]
 
-[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="StreamPlayers2D"]
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="StreamPlayers3D" unique_id=1495297591]
 
-[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="StreamPlayers2D"]
+[node name="AudioStreamPlayer3D3" type="AudioStreamPlayer3D" parent="StreamPlayers3D" unique_id=1630909263]
 
-[node name="AudioStreamPlayer2D4" type="AudioStreamPlayer2D" parent="StreamPlayers2D"]
+[node name="AudioStreamPlayer3D4" type="AudioStreamPlayer3D" parent="StreamPlayers3D" unique_id=579384038]
 
-[node name="AudioStreamPlayer2D5" type="AudioStreamPlayer2D" parent="StreamPlayers2D"]
+[node name="AudioStreamPlayer3D5" type="AudioStreamPlayer3D" parent="StreamPlayers3D" unique_id=356843274]
 
-[node name="AudioStreamPlayer2D6" type="AudioStreamPlayer2D" parent="StreamPlayers2D"]
+[node name="AudioStreamPlayer3D6" type="AudioStreamPlayer3D" parent="StreamPlayers3D" unique_id=2015722407]
 
-[node name="AudioStreamPlayer2D7" type="AudioStreamPlayer2D" parent="StreamPlayers2D"]
+[node name="AudioStreamPlayer3D7" type="AudioStreamPlayer3D" parent="StreamPlayers3D" unique_id=1694114586]
 
-[node name="AudioStreamPlayer2D8" type="AudioStreamPlayer2D" parent="StreamPlayers2D"]
+[node name="AudioStreamPlayer3D8" type="AudioStreamPlayer3D" parent="StreamPlayers3D" unique_id=123897712]

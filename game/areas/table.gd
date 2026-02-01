@@ -9,7 +9,7 @@ var current_level = 0 : set = _set_current_level
 @onready var forklift_spawners: Node3D = $ForkliftSpawners
 @onready var spectral_enemy_spawners: Node3D = $SpectralEnemySpawners
 @onready var tower: Tower = $Tower
-@onready var digging_particles: CPUParticles3D = $DiggingParticles
+@onready var digging_particles: GPUParticles3D = $DiggingParticles
 
 func _ready() -> void:
     Events.score_changed.connect(_on_events_score_changed)

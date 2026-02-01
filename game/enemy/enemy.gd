@@ -21,6 +21,7 @@ var animation_player: AnimationPlayer
 var enemy_model: Node3D
 var enemy_type: String : set = _set_enemy_type
 
+@onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
 @onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
 @onready var enemy: Node3D = $Enemy
 @onready var construction_enemy: Node3D = $ConstructionEnemy
@@ -44,7 +45,8 @@ func _ready():
 func _set_enemy_type(value: String) -> void:
     enemy_type = value
     if enemy_type == "spectral_enemy":
-        hide()
+        if not Utils.is_player_wearing_spectral_mask():
+            hide()
 
 func _on_events_player_put_on_spectral_mask() -> void:
     if enemy_type == "spectral_enemy":
@@ -83,8 +85,10 @@ func face_tower():
     var game: Game = get_tree().current_scene as Game
     var world: World = game.current_scene as World
     var tower: Tower = world.find_child("Tower") as Tower
-    direction = global_transform.origin.direction_to(tower.global_transform.origin).normalized()
-    look_at(tower.global_transform.origin - direction, Vector3.UP)
+    var target = tower.global_position
+    target.y = global_position.y
+    direction = global_transform.origin.direction_to(target).normalized()
+    look_at(target - direction, Vector3.UP)
 
 func try_play_animation(anim_name: String):
     if not animation_player:
@@ -96,6 +100,7 @@ func play_moving_animation():
         "construction_enemy", "spectral_enemy":
             try_play_animation("ConstructorWalking")
         "forklift_enemy":
+            audio_stream_player_3d.play()
             try_play_animation("ForkliftDriving")
 
 func play_building_animation():
@@ -127,6 +132,8 @@ func _set_ragdoll(value: bool) -> void:
     var orig = ragdoll
     ragdoll = value
     if ragdoll and not orig:
+        if enemy_type == "forklift_enemy" and audio_stream_player_3d:
+            audio_stream_player_3d.stop()
         enemy_hitbox.set_deferred("monitorable", false)
         enemy_hitbox.set_deferred("monitorable", false)
         enemy_hitbox_collision_shape_3d.set_deferred("disabled", true)

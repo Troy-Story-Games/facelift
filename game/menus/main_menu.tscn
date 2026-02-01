@@ -80,6 +80,12 @@ custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 text = "Play"
 
+[node name="CheckButton" type="CheckButton" parent="MainMenu/MenuButtonContainer/VBoxContainer" unique_id=1758902951]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Play in AR"
+alignment = 2
+
 [node name="Exit Button" type="Button" parent="MainMenu/MenuButtonContainer/VBoxContainer" unique_id=1185375885]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2

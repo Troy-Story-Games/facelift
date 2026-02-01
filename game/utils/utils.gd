@@ -10,6 +10,11 @@ func _ready() -> void:
     player_hands = load_dict_from_path(HAND_PATH)
     enemies = load_dict_from_path(ENEMIES_PATH)
 
+func is_player_wearing_spectral_mask() -> bool:
+    var game: Game = get_tree().current_scene as Game
+    var player: Player = game.find_child("Player")
+    return player.is_wearing_spectral_mask()
+
 func get_enemy(enemy_name: String) -> PackedScene:
     assert(enemy_name in enemies, "Wrong enemy name")
     return enemies[enemy_name]
@@ -18,10 +23,16 @@ func get_hand(hand_name: String) -> PackedScene:
     assert(hand_name in player_hands, "Wrong hand name")
     return player_hands[hand_name]
 
-func instance_scene_on_main(packed_scene: PackedScene, position) -> Node:
-    var main := get_tree().current_scene
+func instance_scene_on_world(packed_scene: PackedScene, position) -> Node:
+    var game: Game = get_tree().current_scene as Game
+    var world: World = null
+    while not world:
+        world = game.current_scene as World
+        if not world:
+            await get_tree().create_timer(0.25).timeout
+
     var instance : Node3D = packed_scene.instantiate()
-    main.add_child(instance)
+    world.add_child(instance)
     if position is Transform3D:
         instance.global_transform = position
     elif position is Vector3:

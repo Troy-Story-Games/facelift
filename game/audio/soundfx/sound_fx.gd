@@ -4,7 +4,7 @@ var sounds_path: = "res://game/audio/soundfx/sounds/"
 var sounds: = {}
 
 @onready var sound_players: Array[Node] = $StreamPlayers.get_children() as Array[Node]
-@onready var sound_players_2d: Array[Node] = $StreamPlayers2D.get_children() as Array[Node]
+@onready var sound_players_3d: Array[Node] = $StreamPlayers3D.get_children() as Array[Node]
 
 func _ready() -> void:
     sounds = Utils.load_dict_from_path(sounds_path, [".ogg", ".wav", ".mp3"])
@@ -50,11 +50,11 @@ func play(sound_string: String, pitch_scale: float = 1, volume_db: float = -15.0
     print_verbose("WARNING: Too many sounds playing at once!")
     return null
 
-func play_2d(sound_string: String, global_position: Vector2, pitch_scale: float = 1.0, volume_db: float = -15.0, max_distance: float = 450, pitch_scale_random: float = 0.3, force: bool = false) -> AudioStreamPlayer2D:
+func play_3d(sound_string: String, global_position: Vector3, pitch_scale: float = 1.0, volume_db: float = -15.0, max_distance: float = 450, pitch_scale_random: float = 0.3, force: bool = false) -> AudioStreamPlayer3D:
     if pitch_scale_random != 0.0:
         pitch_scale = random_pitch_scale(pitch_scale, pitch_scale_random)
 
-    for player in sound_players_2d:
+    for player in sound_players_3d:
         if not player.playing:
             player.pitch_scale = pitch_scale
             player.volume_db = volume_db
@@ -68,7 +68,7 @@ func play_2d(sound_string: String, global_position: Vector2, pitch_scale: float 
 
     if force:
         print_verbose("Forcing this sound: ", sound_string)
-        var player: AudioStreamPlayer2D = AudioStreamPlayer2D.new()
+        var player: AudioStreamPlayer3D = AudioStreamPlayer3D.new()
         player.pitch_scale = pitch_scale
         player.volume_db = volume_db
         player.stream = sounds[sound_string]

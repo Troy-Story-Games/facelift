@@ -19,7 +19,7 @@ config/description="Throw, smash, and whisk away an armada of tiny construction 
 config/version="1.0.0"
 run/main_scene="uid://36ms7phiqw2i"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://dm5jo2bs3527g"
 
 [autoload]
 
@@ -29,6 +29,7 @@ Events="*res://game/utils/events.gd"
 Utils="*uid://cju1j2qbxxgsb"
 Music="*uid://c662g50vawgbs"
 SoundFx="*uid://c7evl42jh712p"
+SaveAndLoad="*uid://cj1cocvh5dv5d"
 
 [editor_plugins]
 

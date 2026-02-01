@@ -19,12 +19,15 @@ var hammer_mask_spawn: Transform3D
 @onready var menu_tower_tutorial: Node3D = $MainMenu3D/TowerTutorial
 @onready var spectral_mask: Mask = $SpectralMask
 @onready var hammer_mask: Mask = $HammerMask
+@onready var game_over_menu_3d: XRToolsViewport2DIn3D = $GameOverMenu3D
+@onready var alt_room: Node3D = $AltRoom
 
 func _ready() -> void:
     spectral_mask_spawn = spectral_mask.global_transform
     hammer_mask_spawn = hammer_mask.global_transform
     spectral_mask.hide()
     hammer_mask.hide()
+    game_over_menu_3d.hide()
     Events.game_started.connect(_on_events_game_started)
     Events.game_over.connect(_on_events_game_over)
     if get_tree().current_scene.is_simulator:
@@ -43,8 +46,10 @@ func _process(delta: float) -> void:
     menu_hammer.rotate_y(ROTATE_SPEED * delta)
     menu_tower_tutorial.rotate_y(ROTATE_SPEED * delta)
 
-func _on_events_game_started():
+func _on_events_game_started(ar_enabled: bool):
     game_started = true
+    if ar_enabled:
+        alt_room.hide()
 
 func _set_game_started(value: bool) -> void:
     game_started = value
@@ -56,4 +61,4 @@ func _set_game_started(value: bool) -> void:
         Music.play("game_music")
 
 func _on_events_game_over():
-    print("GAME OVER!!!!!!!!!!!!!!!!")
+    game_over_menu_3d.show()

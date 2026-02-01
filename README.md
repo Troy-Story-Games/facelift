@@ -1,10 +1,10 @@
-# ggj-2026-vr-game
+# Face Lift
 
-Placeholder template for the 2026 Global Game Jam
+Submission for the Global Game Jam 2026 - Theme: MASK
 
-## Setup
+## Dev Setup
 
-1. Open the project in Godot 4.5.x
+1. Open the project in Godot 4.6.x
 1. Download the "Godot OpenXR Vendors plugin v4" from the AssetLib tab in Godot and install it
 1. Download the "Godot XR Tools for Godot 4" plugin from the AssetLib tab in Godot and install it
 1. Follow [this guide](https://docs.godotengine.org/en/stable/tutorials/export/exporting_for_android.html) to download Android Studio and setup your PC/laptop for Android export with Godot.

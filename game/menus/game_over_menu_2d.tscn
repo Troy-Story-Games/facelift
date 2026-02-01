@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://bwtr1otoirp2j"]
+
+[ext_resource type="Theme" uid="uid://b1am05jpxcybj" path="res://game/theme/main_theme.tres" id="1_62c3e"]
+[ext_resource type="Script" uid="uid://bivajm80gq71c" path="res://game/menus/game_over_menu_2d.gd" id="1_u8fnr"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_u8fnr"]
+color = Color(0.59717613, 0.59717613, 0.5971761, 1)
+thickness = 5
+
+[node name="GameOverMenu2D" type="CanvasLayer" unique_id=545026423]
+script = ExtResource("1_u8fnr")
+
+[node name="GameOverMenu" type="Control" parent="." unique_id=1366362191]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_62c3e")
+
+[node name="ColorRect" type="ColorRect" parent="GameOverMenu" unique_id=1557708401]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MenuButtonContainer" type="CenterContainer" parent="GameOverMenu" unique_id=1112659689]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOverMenu/MenuButtonContainer" unique_id=1821931577]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Title" type="Label" parent="GameOverMenu/MenuButtonContainer/VBoxContainer" unique_id=1533756685]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+theme_override_font_sizes/font_size = 47
+text = "Game Over!"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="GameOverMenu/MenuButtonContainer/VBoxContainer" unique_id=311058394]
+layout_mode = 2
+theme_override_constants/separation = 15
+theme_override_styles/separator = SubResource("StyleBoxLine_u8fnr")
+
+[node name="Play Button" type="Button" parent="GameOverMenu/MenuButtonContainer/VBoxContainer" unique_id=1013579574]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Play Again?"
+
+[node name="Exit Button" type="Button" parent="GameOverMenu/MenuButtonContainer/VBoxContainer" unique_id=783445284]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Exit"
+
+[connection signal="pressed" from="GameOverMenu/MenuButtonContainer/VBoxContainer/Play Button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="GameOverMenu/MenuButtonContainer/VBoxContainer/Exit Button" to="." method="_on_exit_button_pressed"]

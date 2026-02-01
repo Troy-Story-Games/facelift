@@ -7,8 +7,6 @@
 size = Vector3(0.171875, 0.05, 0.22277832)
 
 [node name="HammerMask" unique_id=49658922 instance=ExtResource("1_slgdk")]
-freeze = true
-freeze_mode = 1
 hand_scene_name = "hammer_hand"
 
 [node name="CollisionShape3D" parent="." index="0" unique_id=1841739251]
