@@ -10,6 +10,11 @@ radius = 0.0733682
 height = 0.10852051
 radius = 0.009765625
 
+[sub_resource type="SphereMesh" id="SphereMesh_423r6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_le3ci"]
+albedo_color = Color(18.892157, 0, 18.892157, 1)
+
 [node name="ConstructionEnemy" unique_id=307083412 instance=ExtResource("1_423r6")]
 speed = 0.3
 enemy_scene = ExtResource("2_le3ci")
@@ -21,3 +26,13 @@ shape = SubResource("SphereShape3D_423r6")
 [node name="CollisionShape3D" parent="." index="1" unique_id=1686408879]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.054125667, 0)
 shape = SubResource("CylinderShape3D_le3ci")
+
+[node name="RightEye" type="MeshInstance3D" parent="." index="4" unique_id=1047500260]
+transform = Transform3D(0.009405491, 0, 0, 0, 0.008126563, 0, 0, 0, 0.017903278, -0.005226887, 0.08713626, 0.0013635308)
+mesh = SubResource("SphereMesh_423r6")
+surface_material_override/0 = SubResource("StandardMaterial3D_le3ci")
+
+[node name="LeftEye" type="MeshInstance3D" parent="." index="5" unique_id=93241025]
+transform = Transform3D(0.009405491, 0, 0, 0, 0.008126563, 0, 0, 0, 0.017903278, 0.004900775, 0.08713626, 0.0013635308)
+mesh = SubResource("SphereMesh_423r6")
+surface_material_override/0 = SubResource("StandardMaterial3D_le3ci")
