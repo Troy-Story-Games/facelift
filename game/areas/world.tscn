@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://h725ykkwjqpb" path="res://game/mask/masks/hammer_mask.tscn" id="5_ypvhv"]
 [ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="7_ywnj1"]
 [ext_resource type="PackedScene" uid="uid://cp0knxexve0vr" path="res://game/menus/main_menu.tscn" id="8_fin68"]
+[ext_resource type="PackedScene" uid="uid://o4p36qrro577" path="res://game/menus/score_board.tscn" id="8_ywnj1"]
+[ext_resource type="PackedScene" uid="uid://57q7hhomocdh" path="res://addons/godot-xr-tools/objects/world_grab_area.tscn" id="9_fin68"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_agbf7"]
 
@@ -20,6 +22,9 @@ fog_mode = 1
 fog_density = 1.0
 fog_depth_begin = 0.0
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_f3yyr"]
+size = Vector3(74.10132, 0.1, 57.01367)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o3d45"]
 albedo_texture = ExtResource("1_agbf7")
 uv1_triplanar = true
@@ -28,12 +33,19 @@ uv1_triplanar = true
 material = SubResource("StandardMaterial3D_o3d45")
 size = Vector3(15, 0.1, 15)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_f3yyr"]
-size = Vector3(15, 0.1, 15)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wpsqn"]
 albedo_texture = ExtResource("1_agbf7")
 uv1_triplanar = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fin68"]
+size = Vector3(0.4416504, 0.087890625, 0.11816406)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fin68"]
+albedo_color = Color(0, 0.31273773, 0.3672147, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_23kjk"]
+material = SubResource("StandardMaterial3D_fin68")
+size = Vector3(0.442, 0.088, 0.118)
 
 [node name="World" type="Node3D" unique_id=143279455]
 script = ExtResource("1_ypvhv")
@@ -44,15 +56,18 @@ environment = SubResource("Environment_f8g1j")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1902773611]
 transform = Transform3D(1, 0, 0, 0, 0.7071068, 0.7071068, 0, -0.7071068, 0.7071068, 0, 0, 0)
 
-[node name="Floor" type="MeshInstance3D" parent="." unique_id=470060127]
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=892369506]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
+collision_layer = 129
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1017276277]
+shape = SubResource("BoxShape3D_f3yyr")
+
+[node name="Floor" type="MeshInstance3D" parent="StaticBody3D" unique_id=470060127]
 visible = false
 mesh = SubResource("BoxMesh_14vxq")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Floor" unique_id=892369506]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D" unique_id=1017276277]
-shape = SubResource("BoxShape3D_f3yyr")
+skeleton = NodePath("../..")
 
 [node name="Table" parent="." unique_id=903607088 instance=ExtResource("3_o3d45")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.12893671, -0.38354272)
@@ -63,7 +78,7 @@ material_override = SubResource("StandardMaterial3D_wpsqn")
 use_collision = true
 
 [node name="SpectralMask" parent="MaskTable" unique_id=49658922 instance=ExtResource("4_f3yyr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.98304784, 0.63563347, -0.548682)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.98304784, 0.58892596, -0.5546551)
 
 [node name="HammerMask" parent="MaskTable" unique_id=391040737 instance=ExtResource("5_ypvhv")]
 transform = Transform3D(1, 0, 0, 0, 2.9802322e-08, -1, 0, 1, 2.9802322e-08, -0.78110445, 0.5935978, -0.53918564)
@@ -74,3 +89,20 @@ scene = ExtResource("8_fin68")
 viewport_size = Vector2(1152, 648)
 transparent = 1
 scene_properties_keys = PackedStringArray("main_menu.gd")
+
+[node name="ScoreBoard3D" parent="." unique_id=264532556 instance=ExtResource("7_ywnj1")]
+transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.25881904, 0, -0.25881904, 0.9659258, 0, 0.65065646, -0.89619035)
+screen_size = Vector2(0.267, 0.15)
+scene = ExtResource("8_ywnj1")
+transparent = 1
+scene_properties_keys = PackedStringArray("score_board.gd")
+
+[node name="WorldGrabArea" parent="." unique_id=1545007538 instance=ExtResource("9_fin68")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.51800513, 0.113334894)
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldGrabArea" unique_id=887069941]
+shape = SubResource("BoxShape3D_fin68")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WorldGrabArea" unique_id=1203107096]
+mesh = SubResource("BoxMesh_23kjk")

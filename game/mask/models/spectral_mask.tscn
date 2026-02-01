@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://blg7smqclkhwk"]
+
+[ext_resource type="PackedScene" uid="uid://m7ltsc2th2oj" path="res://game/mask/assets/spectral_mask.glb" id="1_qvgiu"]
+
+[node name="SpectralMask" unique_id=2009800705 instance=ExtResource("1_qvgiu")]

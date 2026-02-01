@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://q43xlt77t3u5"]
+
+[ext_resource type="PackedScene" uid="uid://b0xewrykyolh4" path="res://game/player/hands/assets/Hammer.glb" id="1_lciod"]
+
+[node name="Hammer" unique_id=831493007 instance=ExtResource("1_lciod")]

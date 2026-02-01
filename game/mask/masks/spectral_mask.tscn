@@ -1,25 +1,17 @@
 [gd_scene format=3 uid="uid://dtdxhr2eocfbf"]
 
 [ext_resource type="PackedScene" uid="uid://c35mcbs6a44i" path="res://game/mask/mask.tscn" id="1_7egqg"]
+[ext_resource type="PackedScene" uid="uid://blg7smqclkhwk" path="res://game/mask/models/spectral_mask.tscn" id="2_eerng"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_7egqg"]
-height = 0.05
-radius = 0.05
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7egqg"]
-albedo_color = Color(0.3726556, 0.116192214, 0.6530527, 1)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_7egqg"]
-material = SubResource("StandardMaterial3D_7egqg")
-top_radius = 0.05
-bottom_radius = 0.05
-height = 0.05
+[sub_resource type="BoxShape3D" id="BoxShape3D_g05oc"]
+size = Vector3(0.16430664, 0.06726074, 0.21484375)
 
 [node name="SpectralMask" unique_id=49658922 instance=ExtResource("1_7egqg")]
 hand_scene_name = "spectral_hand"
 
 [node name="CollisionShape3D" parent="." index="0" unique_id=1841739251]
-shape = SubResource("CylinderShape3D_7egqg")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.026062012, 0.015625)
+shape = SubResource("BoxShape3D_g05oc")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1" unique_id=476634810]
-mesh = SubResource("CylinderMesh_7egqg")
+[node name="SpectralMask" parent="." index="1" unique_id=2009800705 instance=ExtResource("2_eerng")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)

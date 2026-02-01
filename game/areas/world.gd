@@ -3,9 +3,9 @@ class_name World
 
 var game_started: bool = false : set = _set_game_started
 
-@onready var game_floor: MeshInstance3D = $Floor
 @onready var table: Table = $Table
 @onready var main_menu_3d: XRToolsViewport2DIn3D = $MainMenu3D
+@onready var game_floor: MeshInstance3D = $StaticBody3D/Floor
 
 func _ready() -> void:
     Events.game_started.connect(_on_events_game_started)

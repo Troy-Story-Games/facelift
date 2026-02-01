@@ -26,8 +26,8 @@ func set_overlapping_bodies(value: int):
     else:
         building = false
 
-func _on_build_area_area_entered(area: Area3D) -> void:
+func _on_build_area_area_entered(_area: Area3D) -> void:
     overlapping_enemies += 1
 
-func _on_build_area_area_exited(area: Area3D) -> void:
+func _on_build_area_area_exited(_area: Area3D) -> void:
     overlapping_enemies -= 1

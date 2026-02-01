@@ -12,7 +12,7 @@ radius = 0.009765625
 
 [node name="ConstructionEnemy" unique_id=307083412 instance=ExtResource("1_423r6")]
 speed = 0.3
-enemy_type = ExtResource("2_le3ci")
+enemy_scene = ExtResource("2_le3ci")
 
 [node name="CollisionShape3D" parent="EnemyHitbox" parent_id_path=PackedInt32Array(1965724206) index="0" unique_id=1053317259]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05934602, 0)

@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://d3mclo5r4nj1y"]
+
+[ext_resource type="PackedScene" uid="uid://cntncdlrw0sl8" path="res://game/enemy/assets/spectral_enemy.glb" id="1_oxs7m"]
+
+[node name="SpectralEnemy" unique_id=1406747159 instance=ExtResource("1_oxs7m")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="Skeleton3D" parent="Ghost" parent_id_path=PackedInt32Array(1932793693) index="0" unique_id=1089590684]
+bones/0/position = Vector3(-0.00017031813, 0.24095938, -0.029881308)
+bones/0/rotation = Quaternion(-0.14217775, -0.6926654, 0.14217763, 0.69266564)
+bones/1/position = Vector3(0.021786502, -0.059044536, -0.016662821)
+bones/1/rotation = Quaternion(0.37650225, 0.5847571, -0.41506463, 0.5865379)
+bones/2/position = Vector3(0.026431112, -0.041848347, 0.019544823)
+bones/2/rotation = Quaternion(0.3765023, 0.58475703, -0.4150647, 0.5865378)
+bones/3/rotation = Quaternion(1.0690273e-07, 1.667968e-08, -0.324819, 0.9457762)
+bones/4/rotation = Quaternion(0.052427437, 0.012823474, 0.01683067, 0.9984006)
+bones/5/rotation = Quaternion(0.62323445, 0.23550536, 0.049231794, -0.74410504)
+bones/6/rotation = Quaternion(0.044344254, 0.43709517, -0.5938096, 0.6740709)
+bones/7/rotation = Quaternion(0.915283, 0.115945056, -0.12448637, 0.36512595)
+bones/8/rotation = Quaternion(-0.4086767, -0.44720155, -0.5321108, 0.5914831)
+bones/9/position = Vector3(0.0022150506, 0.003557392, 6.548108e-09)
+bones/9/rotation = Quaternion(0.21885252, 0.30676156, 0.9262482, 0.008079752)
+bones/10/rotation = Quaternion(-0.046634976, 0.05022071, 0.34218338, 0.9371305)
+bones/11/position = Vector3(0.0022150336, 0.0035573733, -7.538146e-09)
+bones/11/rotation = Quaternion(0.9258781, -0.017437339, 0.24496543, -0.2871198)
+bones/12/rotation = Quaternion(-0.13134357, 0.017677603, -0.24079184, 0.9614862)

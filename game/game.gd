@@ -1,6 +1,8 @@
 extends Node3D
 class_name Game
 
+const LOAD_MIN_TIME = 5000
+
 var xr_interface: XRInterface
 var current_scene: Node3D
 var fade_tween: Tween
@@ -60,6 +62,8 @@ func _on_load_scene(path: String):
     if current_scene:
         current_scene.queue_free()
 
+    var load_start = Time.get_ticks_msec()
+    #player.disable_player_body()
     loading_screen.get_node("ProgressBar").visible = false
     loading_screen.show()
 
@@ -79,11 +83,17 @@ func _on_load_scene(path: String):
 
     var packed_scene = ResourceLoader.load_threaded_get(path) as PackedScene
     var scene = packed_scene.instantiate()
-    add_child(scene)
 
+    var load_end = Time.get_ticks_msec()
+    var logo_time_left = LOAD_MIN_TIME - load_end
+    if logo_time_left > 0:
+        await get_tree().create_timer(logo_time_left / 1000.0).timeout
+
+    add_child(scene)
     current_scene = scene
     _fade_to_visible()
     loading_screen.hide()
+    #player.enable_player_body()
 
 func _fade_to_visible():
     # Fade to visible

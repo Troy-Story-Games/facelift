@@ -19,7 +19,6 @@ func get_hand(hand_name: String) -> PackedScene:
     return player_hands[hand_name]
 
 func instance_scene_on_main(packed_scene: PackedScene, position) -> Node:
-    print("Instance: ", packed_scene)
     var main := get_tree().current_scene
     var instance : Node3D = packed_scene.instantiate()
     main.add_child(instance)

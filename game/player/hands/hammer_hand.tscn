@@ -2,64 +2,38 @@
 
 [ext_resource type="PackedScene" uid="uid://d03cx6bm6go3o" path="res://game/player/player_hand.tscn" id="1_racb8"]
 [ext_resource type="Script" uid="uid://bkanec8thoojk" path="res://game/player/hands/hammer_hand.gd" id="2_1a183"]
-[ext_resource type="PackedScene" uid="uid://dhaqth6q5yw4n" path="res://addons/godot-xr-tools/hands/model/hand_l.gltf" id="3_qrqjq"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_racb8"]
-albedo_color = Color(0.31209412, 0.14436457, 0.0978831, 1)
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_racb8"]
-material = SubResource("StandardMaterial3D_racb8")
-radius = 0.03
-height = 0.3
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lqd0v"]
-albedo_color = Color(0, 0, 0, 1)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_ph835"]
-material = SubResource("StandardMaterial3D_lqd0v")
-top_radius = 0.04
-bottom_radius = 0.04
-height = 0.15
+[ext_resource type="PackedScene" uid="uid://q43xlt77t3u5" path="res://game/player/hands/models/hammer.tscn" id="3_lqd0v"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_qrqjq"]
-height = 0.15
-radius = 0.04
+height = 0.19335938
+radius = 0.051757813
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_lqd0v"]
-height = 0.18554688
-radius = 0.05
+height = 0.22753906
+radius = 0.0625
 
 [node name="HammerHand" unique_id=1901008799 instance=ExtResource("1_racb8")]
 script = ExtResource("2_1a183")
 
-[node name="HammerHandleMesh" type="MeshInstance3D" parent="." index="0" unique_id=1833527142]
-transform = Transform3D(1, 0, 0, 0, 0.7071067, 0.7071068, 0, -0.7071068, 0.7071067, 0, 0.053827107, -0.04300665)
-mesh = SubResource("CapsuleMesh_racb8")
+[node name="Hammer" parent="." index="0" unique_id=831493007 instance=ExtResource("3_lqd0v")]
+transform = Transform3D(-6.595539e-08, -1.1316157e-08, 1.25, -0.8838835, 0.8838835, -3.8635775e-08, -0.8838835, -0.8838835, -5.4639237e-08, 0, 0.04881268, -0.028064586)
 
-[node name="HammerHeadMesh" type="MeshInstance3D" parent="HammerHandleMesh" index="0" unique_id=398900359]
-transform = Transform3D(1, 0, 0, 0, -5.9604645e-08, -0.9999999, 0, 0.9999999, -5.9604645e-08, 0, 0.13267303, 0.000480026)
-mesh = SubResource("CylinderMesh_ph835")
-skeleton = NodePath("../..")
-
-[node name="CharacterBody3D" type="CharacterBody3D" parent="HammerHandleMesh/HammerHeadMesh" index="0" unique_id=1597190433]
-transform = Transform3D(1, 0, 0, 0, 0.7071069, 0.7071069, 0, -0.7071069, 0.7071069, 0, 0.042162463, 0.25143856)
+[node name="CharacterBody3D" type="CharacterBody3D" parent="Hammer" index="1" unique_id=1597190433]
+transform = Transform3D(-4.2211454e-08, -0.56568545, -0.56568545, -7.2423414e-09, 0.56568545, -0.56568545, 0.8, -2.4726896e-08, -3.4969112e-08, -0.03641568, -0.0984371, -2.812592e-09)
 collision_mask = 12
 motion_mode = 1
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="HammerHandleMesh/HammerHeadMesh/CharacterBody3D" index="0" unique_id=904833477]
-transform = Transform3D(1, 0, 0, 0, 0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0.14798053, -0.20760725)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hammer/CharacterBody3D" index="0" unique_id=904833477]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 3.627551e-18, 0.15839481, -0.21347642)
 shape = SubResource("CylinderShape3D_qrqjq")
 
-[node name="Hand_Reference" parent="." index="1" unique_id=662189623 instance=ExtResource("3_qrqjq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.071126014)
-visible = false
-
-[node name="Area3D" type="Area3D" parent="." index="2" unique_id=1703817209]
-transform = Transform3D(1, 0, 0, 0, 0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0.14915839, -0.13945192)
+[node name="Area3D" type="Area3D" parent="." index="1" unique_id=1703817209]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0.14998016, -0.12448573)
 collision_layer = 0
 collision_mask = 12
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0" unique_id=1107294044]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0065917894, 0)
 shape = SubResource("CylinderShape3D_lqd0v")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

@@ -4,3 +4,6 @@
 
 [node name="forklift_enemy" unique_id=1240043831 instance=ExtResource("1_40r6u")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="ForkliftMesh_001" parent="ForkliftMesh" parent_id_path=PackedInt32Array(119695092) index="0" unique_id=1115662037]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.21071935e-08, 0.1267652, 0.27794757)

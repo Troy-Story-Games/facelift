@@ -1,5 +1,25 @@
 [gd_scene format=3 uid="uid://fynj71ncghu0"]
 
 [ext_resource type="PackedScene" uid="uid://cf0dsar753dln" path="res://game/enemy/enemy.tscn" id="1_cmmcg"]
+[ext_resource type="PackedScene" uid="uid://d3mclo5r4nj1y" path="res://game/enemy/models/spectral_enemy.tscn" id="2_ydpqf"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ydpqf"]
+radius = 0.0733682
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ydpqf"]
+height = 0.10852051
+radius = 0.009765625
 
 [node name="SpectralEnemy" unique_id=307083412 instance=ExtResource("1_cmmcg")]
+collision_layer = 4
+enemy_scene = ExtResource("2_ydpqf")
+can_grab_enemy = false
+can_hammer_enemy = false
+
+[node name="CollisionShape3D" parent="EnemyHitbox" parent_id_path=PackedInt32Array(1965724206) index="0" unique_id=1053317259]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05553802, 0)
+shape = SubResource("SphereShape3D_ydpqf")
+
+[node name="CollisionShape3D" parent="." index="1" unique_id=1686408879]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.04865151, 0)
+shape = SubResource("CylinderShape3D_ydpqf")
