@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://bf1gieq3a0tqq" path="res://game/enemy/enemy_spawner.tscn" id="2_tsilo"]
 [ext_resource type="PackedScene" uid="uid://dw6tmtwb742mc" path="res://game/tower/tower.tscn" id="3_tsilo"]
 [ext_resource type="PackedScene" uid="uid://8tjqsvhkw8an" path="res://game/areas/table_model.tscn" id="3_ut4ed"]
+[ext_resource type="PackedScene" uid="uid://57nrp6piotpd" path="res://game/areas/assets/GrassMound.glb" id="5_uhyo6"]
+[ext_resource type="PackedScene" uid="uid://djqnj6k851wgb" path="res://game/fx/digging_particles.tscn" id="6_6m0mj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_f8g1j"]
 size = Vector3(2.1796875, 1.3286133, 0.984375)
@@ -102,3 +104,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.67393166, 0.70904565, 0.000
 
 [node name="Target6" type="Marker3D" parent="SpectralEnemySpawners" unique_id=259379343]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.67393166, 0.70904565, 0.09649593)
+
+[node name="GrassMound" parent="." unique_id=861165940 instance=ExtResource("5_uhyo6")]
+transform = Transform3D(-0.1812204, 0, -0.17221838, 0, 0.25, 0, 0.17221838, 0, -0.1812204, 0.85124844, 0.70843816, -0.004657209)
+
+[node name="DiggingParticles" parent="." unique_id=139980034 instance=ExtResource("6_6m0mj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8387264, 0.71922207, 0.02056998)
+emitting = false
+amount = 256
+lifetime = 0.13
+speed_scale = 0.5
+explosiveness = 0.0

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cvr6mkdtspslh"]
+
+[ext_resource type="Script" uid="uid://b8fy3ejyspobi" path="res://game/menus/menu_tutorial_card_3d.gd" id="1_xgdrq"]
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="2_ij4he"]
+[ext_resource type="PackedScene" uid="uid://dc03wwrm44svt" path="res://game/menus/menu_tutorial_card_2d.tscn" id="3_224js"]
+
+[node name="MenuTutorialCard3D" type="Node3D" unique_id=303154962]
+script = ExtResource("1_xgdrq")
+
+[node name="Viewport2Din3D" parent="." unique_id=1155406092 instance=ExtResource("2_ij4he")]
+screen_size = Vector2(0.444, 0.25)
+collision_layer = 5242880
+scene = ExtResource("3_224js")
+viewport_size = Vector2(1152, 648)
+transparent = 1
+scene_properties_keys = PackedStringArray("menu_tutorial_card_2d.gd")

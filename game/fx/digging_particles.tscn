@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://djqnj6k851wgb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lpev2"]
+albedo_color = Color(0.7411765, 0.5568628, 0.44705883, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_sq6vt"]
+material = SubResource("StandardMaterial3D_lpev2")
+radius = 0.01
+height = 0.02
+
+[node name="DiggingParticles" type="CPUParticles3D" unique_id=139980034]
+amount = 64
+lifetime = 0.18000000000000002
+explosiveness = 0.44
+mesh = SubResource("SphereMesh_sq6vt")
+emission_shape = 3
+emission_box_extents = Vector3(0.15, 0.025, 0.15)
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 0.7
+initial_velocity_max = 0.7

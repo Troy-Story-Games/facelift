@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://dc03wwrm44svt"]
+
+[ext_resource type="Script" uid="uid://cowga3tlt421s" path="res://game/menus/menu_tutorial_card_2d.gd" id="1_t1cac"]
+
+[node name="MenuTutorialCard2D" type="CanvasLayer" unique_id=354867816]
+script = ExtResource("1_t1cac")
+
+[node name="Control2" type="Control" parent="." unique_id=1176485918]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control2" unique_id=1868712947]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.13953033, 0.15047342, 0.18393302, 1)
+
+[node name="Control" type="CenterContainer" parent="Control2" unique_id=1473538946]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control2/Control" unique_id=1515420846]
+layout_mode = 2
+theme_override_font_sizes/font_size = 98
+text = "XXXXXXXXXXXXXXXXXX"
