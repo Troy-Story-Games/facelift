@@ -1,15 +1,25 @@
 [gd_scene format=3 uid="uid://1ubjdf4dacfi"]
 
 [ext_resource type="PackedScene" uid="uid://d03cx6bm6go3o" path="res://game/player/player_hand.tscn" id="1_y04qk"]
+[ext_resource type="Script" uid="uid://ca8o1v0kbqt6e" path="res://game/player/hands/spectral_hand.gd" id="2_kj10u"]
+[ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="2_lt82n"]
+[ext_resource type="Material" uid="uid://dyuaw57o8y3i" path="res://addons/godot-xr-tools/materials/highlight.tres" id="4_kj10u"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y04qk"]
-albedo_color = Color(0.5429741, 0.05032651, 0.7688017, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_y04qk"]
-material = SubResource("StandardMaterial3D_y04qk")
-size = Vector3(0.1, 0.1, 0.1)
+[sub_resource type="SphereShape3D" id="SphereShape3D_lt82n"]
+radius = 0.09230357
 
 [node name="SpectralHand" unique_id=1901008799 instance=ExtResource("1_y04qk")]
+script = ExtResource("2_kj10u")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="0" unique_id=167897599]
-mesh = SubResource("BoxMesh_y04qk")
+[node name="LeftHand" parent="." index="0" unique_id=1463121493 instance=ExtResource("2_lt82n")]
+hand_material_override = ExtResource("4_kj10u")
+
+[node name="Area3D" type="Area3D" parent="." index="1" unique_id=1170781955]
+collision_layer = 0
+collision_mask = 12
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0" unique_id=1908424890]
+transform = Transform3D(0.99970317, 0, -0.024362385, 0, 1, 0, 0.024362385, 0, 0.99970317, 0.033039063, 0, -0.009870738)
+shape = SubResource("SphereShape3D_lt82n")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

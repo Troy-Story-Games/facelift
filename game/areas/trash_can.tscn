@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://do8jifmlfaa13"]
+
+[ext_resource type="Script" uid="uid://cdrp8dmfgctmi" path="res://game/areas/trash_can.gd" id="1_6nndo"]
+[ext_resource type="PackedScene" uid="uid://y8o77rgjqm8h" path="res://game/areas/assets/Trashcan.glb" id="1_lbkex"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6nndo"]
+size = Vector3(0.47558594, 0.45410156, 0.33496094)
+
+[node name="TrashCan" type="Node3D" unique_id=145948585]
+script = ExtResource("1_6nndo")
+
+[node name="Trashcan" parent="." unique_id=484619438 instance=ExtResource("1_lbkex")]
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1779292972]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1436896640]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.27294922, 0)
+shape = SubResource("BoxShape3D_6nndo")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

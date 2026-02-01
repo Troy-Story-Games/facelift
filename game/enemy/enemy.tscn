@@ -2,9 +2,14 @@
 
 [ext_resource type="Script" uid="uid://bse8excy5hipn" path="res://game/enemy/enemy.gd" id="1_3dvn5"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3dvn5"]
+bounce = 0.5
+
 [node name="Enemy" type="RigidBody3D" unique_id=307083412]
 collision_layer = 20
 collision_mask = 5
+physics_material_override = SubResource("PhysicsMaterial_3dvn5")
+gravity_scale = 0.5
 freeze = true
 freeze_mode = 1
 script = ExtResource("1_3dvn5")

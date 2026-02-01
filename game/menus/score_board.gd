@@ -7,7 +7,11 @@ var current_score: int = 0 : set = _set_current_score
 
 func _ready() -> void:
     Events.enemy_died.connect(_on_enemy_died)
+    Events.enemy_recycled.connect(_on_enemy_recycled)
     current_score = 0
+
+func _on_enemy_recycled():
+    current_score += 50
 
 func _on_enemy_died():
     current_score += 10
@@ -15,3 +19,4 @@ func _on_enemy_died():
 func _set_current_score(value: int) -> void:
     current_score = value
     score.text = str(current_score)
+    Events.score_changed.emit(current_score)

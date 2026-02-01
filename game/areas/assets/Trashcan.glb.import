@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cjbmmbevvtl4l"
-path="res://.godot/imported/forklift_enemy.glb-afb23f39daea5204adc95764bf2f1c8f.scn"
+uid="uid://y8o77rgjqm8h"
+path="res://.godot/imported/Trashcan.glb-16b873398a36c0262b94c48d8b4b5168.scn"
 
 [deps]
 
-source_file="res://game/enemy/assets/forklift_enemy.glb"
-dest_files=["res://.godot/imported/forklift_enemy.glb-afb23f39daea5204adc95764bf2f1c8f.scn"]
+source_file="res://game/areas/assets/Trashcan.glb"
+dest_files=["res://.godot/imported/Trashcan.glb-16b873398a36c0262b94c48d8b4b5168.scn"]
 
 [params]
 

@@ -12,6 +12,7 @@ size = Vector3(0.10131836, 0.18988037, 0.21313477)
 
 [node name="ForkliftEnemy" unique_id=307083412 instance=ExtResource("1_7kn45")]
 collision_layer = 4
+mass = 4.0
 speed = 0.1
 enemy_scene = ExtResource("2_ximyj")
 can_grab_enemy = false
@@ -23,9 +24,9 @@ shape = SubResource("SphereShape3D_7kn45")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.09675872, 0)
 shape = SubResource("BoxShape3D_7kn45")
 
-[node name="construction_enemy" parent="." index="4" unique_id=878544191 instance=ExtResource("3_ximyj")]
+[node name="construction_enemy" parent="." index="3" unique_id=878544191 instance=ExtResource("3_ximyj")]
 
-[node name="Skeleton3D" parent="construction_enemy/Constructor" parent_id_path=PackedInt32Array(878544191, 1453694142) index="0" unique_id=1970853714]
+[node name="Skeleton3D" parent="construction_enemy/Constructor" parent_id_path=PackedInt32Array(878544191, 227476989) index="0" unique_id=1300441590]
 bones/0/position = Vector3(-0.00017031813, 0.24095938, -0.029881308)
 bones/0/rotation = Quaternion(-0.14217775, -0.6926654, 0.14217763, 0.69266564)
 bones/1/position = Vector3(0.021786502, -0.059044536, -0.016662821)
@@ -45,37 +46,7 @@ bones/11/position = Vector3(0.0022150336, 0.0035573733, -7.538146e-09)
 bones/11/rotation = Quaternion(0.9258781, -0.017437339, 0.24496543, -0.2871198)
 bones/12/rotation = Quaternion(-0.13134357, 0.017677603, -0.24079184, 0.9614862)
 
-[node name="Physical Bone Root" parent="construction_enemy/Constructor/Skeleton3D/PhysicalBoneSimulator3D" parent_id_path=PackedInt32Array(878544191, 156431372) index="0" unique_id=27373009]
-transform = Transform3D(0.5194702, 1.8520331, -0.5478358, 0.7608131, 0.32520667, 1.8208251, 1.7751943, -0.6813325, -0.6200579, 0.008750388, 0.21131065, -0.019807605)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0078889e-05, -3.9851293e-06, 0.016279625)
-body_offset = Transform3D(1.9313602, -0.49813324, 0.14734954, -3.5762787e-07, 0.5673062, 1.9178543, -0.51946956, -1.8520335, 0.5478361, -0.0024202466, -0.031219691, -0.008920711)
-
-[node name="Physical Bone Spine" parent="construction_enemy/Constructor/Skeleton3D/PhysicalBoneSimulator3D" parent_id_path=PackedInt32Array(878544191, 156431372) index="1" unique_id=1079660243]
-transform = Transform3D(6.532724e-07, -2, -2.2978989e-07, -0.50785977, 5.6372606e-08, -1.9344453, 1.9344454, 6.9021036e-07, -0.50785977, -0.00016992576, 0.28248125, -0.034537345)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.578839e-08, 1.9396528e-07, 0.00982814)
-body_offset = Transform3D(2.0000005, -4.1509907e-09, 2.9802322e-07, 0, -1.91136e-11, -2.0000005, 3.1855052e-09, 2.0000002, 3.1999278e-08, -7.4505806e-08, 0.019656286, -3.882451e-07)
-
-[node name="Physical Bone ShoulderL" parent="construction_enemy/Constructor/Skeleton3D/PhysicalBoneSimulator3D" parent_id_path=PackedInt32Array(878544191, 156431372) index="2" unique_id=1807408360]
-transform = Transform3D(-0.82369405, -0.2244642, -1.8086305, -0.022938082, 1.9858927, -0.23601718, 1.8223617, -0.07645971, -0.82045835, 0.017406257, 0.3037851, -0.021570709)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.365546e-07, 1.088002e-06, 0.009718411)
-body_offset = Transform3D(2.0000002, -2.682209e-07, 2.3841858e-07, 5.9604645e-08, -1.3783574e-07, -2, 5.2154064e-08, 2, -4.4703484e-08, 1.6707927e-06, 0.019436821, -2.1755695e-06)
-
-[node name="Physical Bone ShoulderR" parent="construction_enemy/Constructor/Skeleton3D/PhysicalBoneSimulator3D" parent_id_path=PackedInt32Array(878544191, 156431372) index="3" unique_id=314210567]
-transform = Transform3D(0.6250991, 1.4047693, 1.2790132, -0.24374197, -1.2760398, 1.520629, 1.8841021, -0.63114655, -0.22762506, -0.012200891, 0.2871939, -0.027403945)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8119675e-07, 1.2760895e-06, 0.009404829)
-body_offset = Transform3D(2.0000002, 6.556511e-07, 5.066395e-07, 6.2584877e-07, -3.85195e-05, -2.0000005, -3.5762787e-07, 2.0000002, -3.8459897e-05, 3.5762787e-07, 0.018809661, -2.1904707e-06)
-
-[node name="Physical Bone PelvisR" parent="construction_enemy/Constructor/Skeleton3D/PhysicalBoneSimulator3D" parent_id_path=PackedInt32Array(878544191, 156431372) index="4" unique_id=230482305]
-transform = Transform3D(-0.8009335, -1.4320052, 1.1436203, -0.43793586, 1.3614666, 1.3980776, -1.7795274, 0.30946743, -0.85878533, -0.007704137, 0.23589072, -0.023589104)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1082753e-09, 2.802158e-07, 0.0065880343)
-body_offset = Transform3D(1.9999998, 0, 1.7881393e-07, 3.5762787e-07, 2.965331e-06, -2, 8.940697e-08, 1.9999998, 3.144145e-06, 1.3038516e-08, 0.013176069, -5.811453e-07)
-
-[node name="Physical Bone PelvisL" parent="construction_enemy/Constructor/Skeleton3D/PhysicalBoneSimulator3D" parent_id_path=PackedInt32Array(878544191, 156431372) index="5" unique_id=472629251]
-transform = Transform3D(-0.88720495, 1.4302173, -1.0804379, 0.374872, 1.3269378, 1.4486916, 1.7528088, 0.44013017, -0.8567071, 0.0066114594, 0.23601286, -0.023870248)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4464994e-09, -1.3706263e-06, 0.0062750494)
-body_offset = Transform3D(2.0000005, -5.066395e-07, 2.9802322e-07, 2.3841858e-07, -2.8312206e-07, -2.0000002, 4.4703484e-07, 2.0000002, -8.940697e-08, -1.6763806e-08, 0.012550101, 2.7418137e-06)
-
-[node name="AnimationPlayer" parent="construction_enemy" index="1" unique_id=624520596]
+[node name="AnimationPlayer" parent="construction_enemy" index="1" unique_id=1823016758]
 autoplay = &"ConstructorDriving"
 
 [editable path="construction_enemy"]

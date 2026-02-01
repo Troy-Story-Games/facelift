@@ -12,10 +12,35 @@
 [ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="8_uv2nh"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_anr75"]
-radius = 0.13109107
+radius = 0.12641867
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_j0mij"]
+radius = 0.09
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_gb4gm"]
+radius = 0.09
 
 [node name="Player" type="XROrigin3D" unique_id=508514659]
 script = ExtResource("1_ywqt8")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=171603925]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1983327140]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control" unique_id=279184566]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
 
 [node name="XRCamera3D" type="XRCamera3D" parent="." unique_id=1971797437]
 current = true
@@ -24,7 +49,7 @@ current = true
 
 [node name="MaskDetectionArea" type="Area3D" parent="XRCamera3D" unique_id=1064199200]
 collision_layer = 0
-collision_mask = 32
+collision_mask = 288
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="XRCamera3D/MaskDetectionArea" unique_id=1816848854]
 shape = SubResource("SphereShape3D_anr75")
@@ -44,6 +69,14 @@ grab_collision_mask = 327696
 ranged_enable = false
 ranged_collision_mask = 0
 
+[node name="MaskRemovalArea" type="Area3D" parent="LeftController" unique_id=266772741]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.05556491)
+collision_layer = 256
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LeftController/MaskRemovalArea" unique_id=1076917699]
+shape = SubResource("SphereShape3D_j0mij")
+
 [node name="RightController" type="XRController3D" parent="." unique_id=1062506974]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0, 0)
 tracker = &"right_hand"
@@ -62,6 +95,14 @@ ranged_collision_mask = 0
 [node name="FunctionPointer" parent="RightController" unique_id=1838822536 instance=ExtResource("8_uv2nh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02, 0.05, -0.1)
 
+[node name="MaskRemovalArea" type="Area3D" parent="RightController" unique_id=377438247]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.05874689)
+collision_layer = 256
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RightController/MaskRemovalArea" unique_id=729627711]
+shape = SubResource("SphereShape3D_gb4gm")
+
 [node name="SimulatorComponent" type="Node" parent="." unique_id=1325402762 node_paths=PackedStringArray("player", "right_controller", "left_controller", "camera")]
 script = ExtResource("3_a4w0n")
 player = NodePath("..")
@@ -71,14 +112,17 @@ camera = NodePath("../XRCamera3D")
 metadata/_custom_type_script = "uid://cmbucw30474iw"
 
 [node name="PlayerBody" parent="." unique_id=1621455377 instance=ExtResource("3_8soms")]
-collision_layer = 524290
-collision_mask = 128
+collision_mask = 0
 enabled = false
 
+[connection signal="area_entered" from="XRCamera3D/MaskDetectionArea" to="." method="_on_mask_detection_area_area_entered"]
+[connection signal="area_exited" from="XRCamera3D/MaskDetectionArea" to="." method="_on_mask_detection_area_area_exited"]
 [connection signal="body_entered" from="XRCamera3D/MaskDetectionArea" to="." method="_on_mask_detection_area_body_entered"]
 [connection signal="recenter" from="LeftController" to="." method="_on_left_controller_recenter"]
+[connection signal="has_dropped" from="LeftController/FunctionPickup" to="." method="_on_function_pickup_left_has_dropped"]
 [connection signal="has_picked_up" from="LeftController/FunctionPickup" to="." method="_on_function_pickup_left_controller_has_picked_up"]
 [connection signal="button_pressed" from="RightController" to="." method="_on_right_controller_button_pressed"]
 [connection signal="button_released" from="RightController" to="." method="_on_right_controller_button_released"]
 [connection signal="recenter" from="RightController" to="." method="_on_right_controller_recenter"]
+[connection signal="has_dropped" from="RightController/FunctionPickup" to="." method="_on_function_pickup_right_has_dropped"]
 [connection signal="has_picked_up" from="RightController/FunctionPickup" to="." method="_on_function_pickup_right_controller_has_picked_up"]

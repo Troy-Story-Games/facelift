@@ -9,6 +9,7 @@ radius = 0.01
 height = 0.02
 
 [node name="DiggingParticles" type="CPUParticles3D" unique_id=139980034]
+emitting = false
 amount = 64
 lifetime = 0.18000000000000002
 explosiveness = 0.44

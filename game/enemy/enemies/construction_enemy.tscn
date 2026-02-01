@@ -11,7 +11,10 @@ height = 0.10852051
 radius = 0.009765625
 
 [node name="ConstructionEnemy" unique_id=307083412 instance=ExtResource("1_423r6")]
-speed = 0.3
+mass = 2.0
+angular_damp = 0.5
+speed = 0.15
+arrival_safe_distance = 0.3
 enemy_scene = ExtResource("2_le3ci")
 
 [node name="CollisionShape3D" parent="EnemyHitbox" parent_id_path=PackedInt32Array(1965724206) index="0" unique_id=1053317259]

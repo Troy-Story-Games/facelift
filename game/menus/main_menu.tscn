@@ -44,11 +44,11 @@ layout_mode = 2
 size_flags_vertical = 1
 text = "Credits:
 Travis Constantino (Designer)
-Mina <lastname> (3D Art)
-Page <lastname> (2D Art/Textures)
-Baily <lastname> (Music/SFX)
+Mina Stevens (3D Art)
+Paige Soules (2D Art/Textures)
+kattybratt  (Music/SFX)
 Sean LaPlante (Game Programmer)
-Ashley <lastname> (Game Programmer)
+Ashley Livingstone (Game Programmer)
 "
 
 [node name="MenuButtonContainer" type="CenterContainer" parent="MainMenu" unique_id=122137858]

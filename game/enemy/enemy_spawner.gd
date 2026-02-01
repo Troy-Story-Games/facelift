@@ -16,7 +16,6 @@ func _ready() -> void:
     enemy_scene = Utils.get_enemy(spawn_type)
 
 func start_spawning():
-    spawn()
     timer.start(randf_range(rand_min, rand_max))
 
 func spawn() -> void:

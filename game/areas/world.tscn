@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://q43xlt77t3u5" path="res://game/player/hands/models/hammer.tscn" id="13_bxme0"]
 [ext_resource type="PackedScene" uid="uid://cvr6mkdtspslh" path="res://game/menus/menu_tutorial_card_3d.tscn" id="14_dvrlu"]
 [ext_resource type="PackedScene" uid="uid://xfb57ilntfmd" path="res://game/tower/tower_model.tscn" id="15_tl63b"]
+[ext_resource type="PackedScene" uid="uid://do8jifmlfaa13" path="res://game/areas/trash_can.tscn" id="17_lgr31"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_agbf7"]
 
@@ -49,36 +50,39 @@ environment = SubResource("Environment_f8g1j")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1902773611]
 transform = Transform3D(1, 0, 0, 0, 0.7071068, 0.7071068, 0, -0.7071068, 0.7071068, 0, 0, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=892369506]
+[node name="Floor" type="StaticBody3D" parent="." unique_id=892369506]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 collision_layer = 129
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1017276277]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=1017276277]
 shape = SubResource("BoxShape3D_f3yyr")
 
-[node name="Floor" type="MeshInstance3D" parent="StaticBody3D" unique_id=470060127]
+[node name="Floor" type="MeshInstance3D" parent="Floor" unique_id=470060127]
 visible = false
 mesh = SubResource("BoxMesh_14vxq")
 skeleton = NodePath("../..")
 
-[node name="Table" parent="." unique_id=903607088 instance=ExtResource("3_o3d45")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.12893671, -0.38354272)
+[node name="Table" parent="." unique_id=1804258625 instance=ExtResource("3_o3d45")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.062164158, -0.60387087)
+collision_layer = 1
 
 [node name="SpectralMask" parent="." unique_id=49658922 instance=ExtResource("4_f3yyr")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.5797026, 0.46681005, 0.13105828)
+transform = Transform3D(0.978509, 0.20620412, 2.3362718e-08, 0.05510567, -0.26149514, -0.96363044, -0.19870456, 0.94292104, -0.26723835, -0.27, 1.011, -0.63976824)
+release_mode = 1
 
 [node name="HammerMask" parent="." unique_id=391040737 instance=ExtResource("5_ypvhv")]
-transform = Transform3D(1, 0, 0, 0, 2.9802322e-08, -1, 0, 1, 2.9802322e-08, 0.781646, 0.47148192, 0.14652771)
+transform = Transform3D(0.98162717, -0.1908091, 1.518081e-08, -0.033133645, -0.17045781, -0.9848077, 0.18791027, 0.966714, -0.17364822, 0.283, 1.016, -0.63976824)
+release_mode = 1
 
 [node name="MainMenu3D" parent="." unique_id=1379790286 instance=ExtResource("7_ywnj1")]
 transform = Transform3D(0.9999907, 0, -0.004328251, 0, 1, 0, 0.004328251, 0, 0.9999907, 0, 1.3, -2)
 scene = ExtResource("8_fin68")
 viewport_size = Vector2(1152, 648)
-transparent = 1
 scene_properties_keys = PackedStringArray("main_menu.gd")
 
 [node name="ConstructorTutorial" type="Node3D" parent="MainMenu3D" unique_id=1589831423]
+transform = Transform3D(1, 0, 4.656613e-10, 0, 1, 0, -4.656613e-10, 0, 1, 0, 0.058873773, 0)
 
 [node name="construction_enemy" parent="MainMenu3D/ConstructorTutorial" unique_id=878544191 instance=ExtResource("8_23kjk")]
 transform = Transform3D(1, 0, 9.313226e-09, 0, 1, 0, -9.313226e-09, 0, 1, 0.3956702, -0.6884849, 1.5204204)
@@ -90,36 +94,6 @@ bones/9/rotation = Quaternion(-0.07660661, 0.35744888, 0.9106974, 0.1923329)
 [node name="ConstructorMesh" parent="MainMenu3D/ConstructorTutorial/construction_enemy/Constructor/Skeleton3D" index="0" unique_id=1918724958]
 transform = Transform3D(1, 0, 9.313226e-10, 0, 1, 0, -9.313226e-10, 0, 1, 0, 0, 0)
 
-[node name="Physical Bone Root" parent="MainMenu3D/ConstructorTutorial/construction_enemy/Constructor/Skeleton3D/PhysicalBoneSimulator3D" parent_id_path=PackedInt32Array(878544191, 156431372) index="0" unique_id=27373009]
-transform = Transform3D(0.25974596, 0.92628855, -0.2729863, -3.0827966e-06, 0.28268984, 0.95921135, 0.96567696, -0.24915045, 0.0734304, 0.0016713142, 0.048266053, -0.015178114)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.008045146, 0.0049132826, 0.031072771)
-body_offset = Transform3D(0.9656772, -0.24915014, 0.07343037, -3.1248737e-06, 0.28268993, 0.95921147, -0.25974566, -0.9262887, 0.2729864, -0.008826554, -0.03119427, -0.0018416345)
-
-[node name="Physical Bone Spine" parent="MainMenu3D/ConstructorTutorial/construction_enemy/Constructor/Skeleton3D/PhysicalBoneSimulator3D" parent_id_path=PackedInt32Array(878544191, 156431372) index="1" unique_id=1079660243]
-transform = Transform3D(1.704786e-06, -0.99999994, -6.007027e-08, 5.8809775e-08, 6.007038e-08, -1, 1, 1.704786e-06, 5.880987e-08, -0.00778991, 0.12360585, -0.007662058)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0013104778, -0.007619587, 0.019655464)
-body_offset = Transform3D(1.0000001, 1.3466924e-06, -7.9476337e-10, -7.9477047e-10, 4.6565557e-10, -1.0000001, -1.3471581e-06, 1.0000001, 4.656532e-10, -0.0013104677, 0.019655466, 0.0076195896)
-
-[node name="Physical Bone ShoulderL" parent="MainMenu3D/ConstructorTutorial/construction_enemy/Constructor/Skeleton3D/PhysicalBoneSimulator3D" parent_id_path=PackedInt32Array(878544191, 156431372) index="2" unique_id=1807408360]
-transform = Transform3D(0.06557238, 0.532372, -0.843967, 0.43547684, 0.7457252, 0.504236, 0.8978085, -0.400592, -0.18293671, 0.016073108, 0.13345599, -0.0031572878)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00033787178, -5.433687e-05, 0.019238478)
-body_offset = Transform3D(1.0000002, -1.7493963e-05, -2.0340085e-05, -2.0384789e-05, -1.7017126e-05, -1.0000001, 1.758337e-05, 1.0000001, -1.6972423e-05, -0.0003374815, 0.019238487, 5.465746e-05)
-
-[node name="Physical Bone ShoulderR" parent="MainMenu3D/ConstructorTutorial/construction_enemy/Constructor/Skeleton3D/PhysicalBoneSimulator3D" parent_id_path=PackedInt32Array(878544191, 156431372) index="3" unique_id=314210567]
-transform = Transform3D(-0.20889007, 0.543264, 0.81316, -0.012192808, -0.83288586, 0.5533105, 0.97786313, 0.105666354, 0.18060552, -0.015530676, 0.13276577, -0.009990156)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00022139905, -1.4063772e-05, 0.018956004)
-body_offset = Transform3D(1.0000001, 2.4586916e-06, 1.6987324e-06, 1.6838312e-06, -1.737848e-05, -1.0000001, -2.4735928e-06, 0.99999994, -1.7419457e-05, -0.00022143126, 0.018956006, 1.4394522e-05)
-
-[node name="Physical Bone PelvisR" parent="MainMenu3D/ConstructorTutorial/construction_enemy/Constructor/Skeleton3D/PhysicalBoneSimulator3D" parent_id_path=PackedInt32Array(878544191, 156431372) index="4" unique_id=230482305]
-transform = Transform3D(0.2770288, -0.7327235, 0.6215877, 0.29554865, 0.68052346, 0.6704766, -0.914279, -0.0020319312, 0.40508002, -0.008431762, 0.07065731, -0.0118801)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00016426768, -7.3924646e-05, 0.013276964)
-body_offset = Transform3D(0.99999994, -3.8510188e-07, -2.0861626e-07, -3.5762787e-07, -3.958121e-08, -1, 4.0559098e-07, 0.9999999, 3.259629e-09, 0.0001642704, 0.013276964, 7.392466e-05)
-
-[node name="Physical Bone PelvisL" parent="MainMenu3D/ConstructorTutorial/construction_enemy/Constructor/Skeleton3D/PhysicalBoneSimulator3D" parent_id_path=PackedInt32Array(878544191, 156431372) index="5" unique_id=472629251]
-transform = Transform3D(0.37050942, 0.4949015, -0.7859995, -0.20876847, 0.8689464, 0.44871804, 0.9050626, -0.0021623708, 0.42527264, 0.012746066, 0.075820744, -0.011808962)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00013899419, 4.4043412e-05, 0.01253711)
-body_offset = Transform3D(1.0000001, 2.2843584e-05, -4.529953e-06, -4.4703484e-06, 8.136999e-05, -1, -2.2904418e-05, 1.0000001, 8.142862e-05, -0.00013893843, 0.012537107, -4.506111e-05)
-
 [node name="AnimationPlayer" parent="MainMenu3D/ConstructorTutorial/construction_enemy" index="1" unique_id=1823016758]
 autoplay = &"ConstructorWalking"
 
@@ -129,6 +103,7 @@ tutorial_text = "Defeat by throwing
 or smashing!"
 
 [node name="SpectralTutorial" type="Node3D" parent="MainMenu3D" unique_id=215923918]
+transform = Transform3D(1, 0, 4.656613e-10, 0, 1, 0, -4.656613e-10, 0, 1, 0, 0.058873773, 0)
 
 [node name="SpectralEnemy" parent="MainMenu3D/SpectralTutorial" unique_id=1406747159 instance=ExtResource("9_kucvp")]
 transform = Transform3D(1, 0, 9.778887e-09, 0, 1, 0, -9.778887e-09, 0, 1, -0.097991735, -0.7023493, 1.509623)
@@ -162,16 +137,12 @@ tutorial_text = "Defeat by wearing the
 spectral mask!"
 
 [node name="ForkliftTutorial" type="Node3D" parent="MainMenu3D" unique_id=983986099]
-transform = Transform3D(1, 0, 1.8626451e-09, 0, 1, 0, -1.8626451e-09, 0, 1, -0.2693976, -0.5365739, 1.9053258)
+transform = Transform3D(1, 0, 2.3283064e-09, 0, 1, 0, -2.3283064e-09, 0, 1, -0.2693976, -0.4777001, 1.9053258)
 
 [node name="forklift_enemy" parent="MainMenu3D/ForkliftTutorial" unique_id=1240043831 instance=ExtResource("10_2ufnl")]
 transform = Transform3D(0.06486503, 0, 0.49577466, 0, 0.5, 0, -0.49577466, 0, 0.06486503, -0.43425915, -0.14824408, -0.43469617)
 
-[node name="Skeleton3D" parent="MainMenu3D/ForkliftTutorial/forklift_enemy/ForkliftMesh/Armature" parent_id_path=PackedInt32Array(1240043831, 499681322) index="0" unique_id=165402141]
-bones/0/rotation = Quaternion(-2.019484e-28, 0, 0, 1)
-bones/1/rotation = Quaternion(-0.7071068, -6.966547e-08, 0.7071068, -4.490981e-09)
-
-[node name="AnimationPlayer" parent="MainMenu3D/ForkliftTutorial/forklift_enemy" index="1" unique_id=521263222]
+[node name="AnimationPlayer" parent="MainMenu3D/ForkliftTutorial/forklift_enemy" index="1" unique_id=150837924]
 autoplay = &"ForkliftDriving"
 
 [node name="MenuTutorialCard3DForklift" parent="MainMenu3D/ForkliftTutorial" unique_id=1830239783 instance=ExtResource("14_dvrlu")]
@@ -181,6 +152,7 @@ hammer by wearing
 the hammer mask! "
 
 [node name="SpectralMaskTutorial" type="Node3D" parent="MainMenu3D" unique_id=23741717]
+transform = Transform3D(1, 0, 4.656613e-10, 0, 1, 0, -4.656613e-10, 0, 1, 0, 0.058873773, 0)
 
 [node name="SpectralMask" parent="MainMenu3D/SpectralMaskTutorial" unique_id=2009800705 instance=ExtResource("12_bxme0")]
 transform = Transform3D(0.95042956, 0, -0.3109416, 0, 1, 0, 0.3109416, 0, 0.95042956, 0.7363456, -0.41662085, 0.7903094)
@@ -190,6 +162,7 @@ transform = Transform3D(0.95042956, 0, -0.31094152, 0, 1, 0, 0.31094152, 0, 0.95
 tutorial_text = "The spectral mask!"
 
 [node name="HammerMaskTutorial" type="Node3D" parent="MainMenu3D" unique_id=351777022]
+transform = Transform3D(1, 0, 4.656613e-10, 0, 1, 0, -4.656613e-10, 0, 1, 0, 0.058873773, 0)
 
 [node name="hammer_mask" parent="MainMenu3D/HammerMaskTutorial" unique_id=578164646 instance=ExtResource("11_qm4ej")]
 transform = Transform3D(0.9653684, 0, -0.26089177, 0, 1, 0, 0.26089177, 0, 0.9653684, 0.7090443, -0.109092355, 0.8287239)
@@ -205,11 +178,13 @@ tutorial_text = "The hammer mask!"
 transform = Transform3D(0.9999906, 0, 0.0043282523, 0, 1, 0, -0.0043282523, 0, 0.9999906, -1.0530949, 0.15867305, 0.03098321)
 
 [node name="ScoreBoard3D" parent="." unique_id=264532556 instance=ExtResource("7_ywnj1")]
-transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.25881904, 0, -0.25881904, 0.9659258, 0, 0.65065646, -0.89619035)
+transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.25881904, 0, -0.25881904, 0.9659258, 0, 0.714026, -1.1284434)
 screen_size = Vector2(0.267, 0.15)
 scene = ExtResource("8_ywnj1")
-transparent = 1
 scene_properties_keys = PackedStringArray("score_board.gd")
+
+[node name="TrashCan" parent="." unique_id=145948585 instance=ExtResource("17_lgr31")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0039647818, 0.41642064, -2.6814349)
 
 [editable path="MainMenu3D/ConstructorTutorial/construction_enemy"]
 [editable path="MainMenu3D/SpectralTutorial/SpectralEnemy"]

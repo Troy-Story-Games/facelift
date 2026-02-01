@@ -8,6 +8,7 @@ size = Vector3(0.16430664, 0.06726074, 0.21484375)
 
 [node name="SpectralMask" unique_id=49658922 instance=ExtResource("1_7egqg")]
 hand_scene_name = "spectral_hand"
+release_mode = -1
 
 [node name="CollisionShape3D" parent="." index="0" unique_id=1841739251]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.026062012, 0.015625)

@@ -119,6 +119,7 @@ simulator_menu_button={
 3d_physics/layer_6="mask"
 3d_physics/layer_7="enemy_hitbox"
 3d_physics/layer_8="xr_floor"
+3d_physics/layer_9="mask_removal"
 
 [physics]
 
